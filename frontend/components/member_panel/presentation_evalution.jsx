@@ -48,6 +48,9 @@ function PresentationEvolution() {
                             <div className="text-end mt-5">
                                 <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/panel/PanelDashboard" } >
                                     Back 
+                                </button>&nbsp;&nbsp;
+                                <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/panel/PanelDashboard" } >
+                                    Search Marks 
                                 </button>
                             </div>
                             <div class="table-responsive mt-3">
@@ -72,6 +75,7 @@ function PresentationEvolution() {
                                             <td>{DeadLine.status}</td>
                                             <td class="text-center">
                                                 <button type="button"  class="btn btn-outline-secondary btn-sm" onClick={()=>addMarks(DeadLine._id,DeadLine.title,DeadLine.submissionType)}>Add Marks</button>&nbsp;&nbsp;
+                                               
                                             </td>
                                         </tr>
                                     ))}

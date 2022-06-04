@@ -59,7 +59,7 @@ function StudentGroupManage() {
                                    Group Management
                             </h2>
                             <div className="text-end mt-5">
-                                <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
+                                <button className='btn-sm btn btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
                                     Back 
                                 </button>
                             </div>

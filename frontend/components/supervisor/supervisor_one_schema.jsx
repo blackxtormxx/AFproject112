@@ -47,12 +47,12 @@ function supervisor_one_markingSchema() {
     <div class="dashboard-main-wrapper" >
         <Navbar/>
         
-        <div class="dashboard-wrapper " id="pdfdiv">
+        <div class="dashboard-wrapper " >
             <div class="row">
                 <div class="col"></div>
                 <div class="col">
-                <div  style={{paddingTop:'13%',paddingLeft:'2%', width:'98%'}}>
-                
+                <div  style={{paddingTop:'13%',paddingLeft:'2%', width:'98%'}} >
+                <div id="pdfdiv">
                 {MarkingSchemaDetails.map((one_MarkingSchema,key) => (
                 
                     <div id="tableId" className="container-fluid bg-white" style={{paddingLeft:'5%', paddingTop:'2%' ,paddingBottom:'2%', paddingRight:'5%'}} >
@@ -70,8 +70,9 @@ function supervisor_one_markingSchema() {
                     </div>
                 ))}
                 </div>
+                </div>
                     <div className="text-end " style={{paddingTop:'3%',paddingLeft:'2%', width:'98%'}}>
-                        <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/Supervisor/SupervisorViewMarkingSchema" } >
+                        <button className='btn-sm btn btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/Supervisor/SupervisorViewMarkingSchema" } >
                             Back 
                         </button>&nbsp;&nbsp;
                         <button className='btn-sm btn-dark' style={{ fontSize:'13px', fontWeight:'light', display : downloadBtn}}  onClick={Download}>

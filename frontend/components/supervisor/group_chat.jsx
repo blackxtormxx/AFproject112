@@ -28,15 +28,15 @@ function GroupChat() {
                     <div class="row bg-light rounded p-4">
                         <center>
                             <h2 class="card-title text-center pt-5 pb-2  text-uppercase text-dark">
-                                  Eveluvate Documents
+                                  Chat With Group
                             </h2>
                             <div className="text-end mt-5">
-                                <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
+                                <button className='btn-sm btn btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
                                     Back 
                                 </button>
                             </div>
                         </center>
-                    </div>
+                   
                     <div class="row">
                     {AllTeams.map((team) => (
                         <div class="col-sm-4">
@@ -44,20 +44,18 @@ function GroupChat() {
                             <div class="card-body">
                                 <h5 class="card-title text-center mt-4">{team.groupId}</h5>
                                 <p class="ps-5">Team Leader's ID : {team.mem_one_regNum}</p>
-                                <p class="ps-5">Second Member's ID : {team.mem_two_regNum}</p>
-                                <p class="ps-5">{team.mem_three_name}</p>
-                                <p class="ps-5">{team.mem_four_name}</p>
-                                <p class="ps-5">{team.researchCategory}</p>
-                                <p class="ps-5">{team.researchTopic}</p>
+                                <p class="ps-5">Topic Category : {team.researchCategory}</p>
+                                <p class="ps-5">Topic : {team.researchTopic}</p>
                                 <div class="text-end">
-                                    <a target="_blank" href={"https://mail.google.com/mail/?view=cm&fs=1&to="+team.mem_one_email+"&su=SUBJECT&body=BODY"} class="btn btn-primary " >Send Email</a>
+                                    <a target="_blank" href={"https://mail.google.com/mail/?view=cm&fs=1&to="+team.mem_one_email+"&su=About Your Research&body="} class="btn btn-primary " >Send Email</a>
                                 </div>
                                 
                             </div>
                             </div>
                         </div>
                     ))}
-                    </div>     
+                    </div>  
+                    </div>   
                 </div>
             </center>
       </div>

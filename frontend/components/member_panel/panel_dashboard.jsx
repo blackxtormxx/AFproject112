@@ -43,16 +43,6 @@ function PanelDashboard() {
                         </div>
                         <div class="col-sm-4 mb-4 mt-4">
                           <div class="card" >
-                            <img src="https://virtualspeech.com/img/blog/group-presentation-business.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
-                            <div class="card-body m-0 p-0 rounded" >
-                              <div class="d-grid gap-2">
-                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" onClick={presentationEvolution}>Presentation Evaluate</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 mb-4 mt-4">
-                          <div class="card" >
                             <img src="https://thumbs.dreamstime.com/b/d-green-check-marks-red-mark-30276012.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
                             <div class="card-body m-0 p-0 rounded" >
                               <div class="d-grid gap-2">
@@ -61,6 +51,17 @@ function PanelDashboard() {
                             </div>
                           </div>
                         </div>
+                        <div class="col-sm-4 mb-4 mt-4">
+                          <div class="card" >
+                            <img src="https://virtualspeech.com/img/blog/group-presentation-business.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
+                            <div class="card-body m-0 p-0 rounded" >
+                              <div class="d-grid gap-2">
+                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" onClick={presentationEvolution}>Presentation Evaluate</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       
                     </div>
                 </div>
             </center>

@@ -58,26 +58,26 @@ function Supervisor_eveluvate_doc() {
                                   Eveluvate Documents
                             </h2>
                             <div className="text-end mt-5">
-                                <button className='btn-sm btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
+                                <button className='btn-sm btn btn-outline-dark' style={{ fontSize:'13px', fontWeight:'light'}} onClick={()=> window.location.href = "/admin/SupervisorDashboard" } >
                                     Back 
                                 </button>
                             </div>
                         </center>
-                    </div>
+                   
                     <div class="row">
                     {AllTeams.map((team) => (
                         <div class="col-sm-4">
                             <div class="card text-start">
                             <div class="card-body">
                                 <h5 class="card-title text-center mt-4">{team.groupId}</h5>
-                                <p class="ps-5">{team.mem_one_regNum}</p>
-                                <p class="ps-5">{team.mem_two_regNum}</p>
-                                <p class="ps-5">{team.mem_three_name}</p>
-                                <p class="ps-5">{team.mem_four_name}</p>
-                                <p class="ps-5">{team.researchCategory}</p>
-                                <p class="ps-5">{team.researchTopic}</p>
+                                <p class="ps-5">Team Leader's ID : {team.mem_one_regNum}</p>
+                                <p class="ps-5">Second Member's ID : {team.mem_two_regNum}</p>
+                                <p class="ps-5">Third Member's ID : {team.mem_three_name}</p>
+                                <p class="ps-5">Fourth Member's ID : {team.mem_four_name}</p>
+                                <p class="ps-5">Topic Category : {team.researchCategory}</p>
+                                <p class="ps-5">Topic : {team.researchTopic}</p>
                                 <div class="text-end">
-                                    <a href="#" class="btn btn-primary " onClick={()=> viewSubmittedDocs(team.groupId)}>Documents Evaluate</a>
+                                    <a href="#" class="btn btn-dark " onClick={()=> viewSubmittedDocs(team.groupId)}>Documents Evaluate</a>
                                 </div>
                                 
                             </div>
@@ -85,6 +85,7 @@ function Supervisor_eveluvate_doc() {
                         </div>
                     ))}
                     </div>     
+                    </div>
                 </div>
             </center>
       </div>
