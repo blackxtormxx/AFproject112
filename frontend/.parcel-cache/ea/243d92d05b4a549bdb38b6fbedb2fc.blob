@@ -1,0 +1,257 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function MarksAdd() {
+    _s();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const deadLineID = urlParams.get('id');
+    const [AllTeams, setAllTeams] = _react.useState([]);
+    const [groupID, setGroupNumber] = _react.useState("");
+    const [marks, setMarks] = _react.useState("");
+    const [passStatus, setPassStatus] = _react.useState("");
+    const [remark, setRemark] = _react.useState("");
+    const staffID = _jsCookieDefault.default.get('user_name');
+    function submit(e) {
+        e.preventDefault();
+        const addMarks = {
+            marks,
+            passStatus,
+            remark
+        };
+        _axiosDefault.default.post("http://localhost:5000/Supervisor/addMarksForSubmmitedDocs", addMarks).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Marks Adding Success!",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/panel/Supervisor_eveluvate_doc";
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Try again.Marks adding not success.",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 55
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 57
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 58
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 61
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h3", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }, "ADD MARKS")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4  text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 68
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 69
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 70
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 71
+        },
+        __self: this
+    }, "Marks"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "number",
+        class: "form-control",
+        onChange: (e)=>{
+            setMarks(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 72
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 76
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 77
+        },
+        __self: this
+    }, "Pass Status"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setPassStatus(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 78
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 81
+        },
+        __self: this
+    }, "Select pass status"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "pass",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }, "Pass"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Fail",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 83
+        },
+        __self: this
+    }, "Fail"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4  text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 88
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 89
+        },
+        __self: this
+    }, "Remark"), /*#__PURE__*/ _reactDefault.default.createElement("textarea", {
+        class: "form-control",
+        rows: "8",
+        onChange: (e)=>{
+            setRemark(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 90
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 94
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-end mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 95
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-dark",
+        onClick: submit,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\marks_add.jsx",
+            lineNumber: 96
+        },
+        __self: this
+    }, "Add Marks")))))))));
+}
+_s(MarksAdd, "F2i8+VfqJo+/Cx4fcZ6MyntOX4U=");
+_c = MarksAdd;
+exports.default = MarksAdd;
+var _c;
+$RefreshReg$(_c, "MarksAdd");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

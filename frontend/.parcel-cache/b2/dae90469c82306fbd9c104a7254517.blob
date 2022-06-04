@@ -1,0 +1,215 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function SubmitDocs() {
+    _s();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const submissionID = urlParams.get('id');
+    const submissionTitle = urlParams.get('title');
+    const groupNumber = urlParams.get('username');
+    const [imageSelected, setimageSelected] = _react.useState("");
+    const username = _jsCookieDefault.default.get('user_name');
+    const [TeamDetails, setTeamDetails] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/team/OneTeam/" + username).then((res)=>setTeamDetails(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    }, []);
+    function submit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imageSelected);
+        formData.append("upload_preset", "ml_default");
+        _axiosDefault.default.post("https://api.cloudinary.com/v1_1/dnomnqmne/image/upload", formData).then((response)=>{
+            const file = imageSelected.name;
+            const addSubmission = {
+                groupNumber,
+                supervisor,
+                coSupervisor,
+                submissionID,
+                file
+            };
+            _axiosDefault.default.post("http://localhost:5000/submit_document/addFiles", addSubmission).then(()=>{
+                _sweetalert2Default.default.fire({
+                    title: "Success!",
+                    text: "Submission Success!",
+                    icon: 'success',
+                    confirmButtonText: "OK",
+                    type: "success"
+                }).then((okay)=>{
+                    if (okay) window.location.href = "/student/TeamDashboard";
+                });
+            }).catch((err)=>{
+                _sweetalert2Default.default.fire({
+                    title: "Error!",
+                    text: "Try again.Submission not success.",
+                    icon: 'error',
+                    confirmButtonText: "OK",
+                    type: "success"
+                });
+            });
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 67
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 68
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 69
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 70
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 71
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 72
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 73
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h3", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 74
+        },
+        __self: this
+    }, "Submit Documents")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4 mt-5  text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 78
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 79
+        },
+        __self: this
+    }, "Task : ", submissionTitle)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4 mt-5  text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 81
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }, "Super")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4  text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 85
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 86
+        },
+        __self: this
+    }, "Upload Documents"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "file",
+        onChange: (e)=>{
+            setimageSelected(e.target.files[0]);
+        },
+        className: "form-control",
+        id: "customFile",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 87
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 91
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-end mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 92
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-dark",
+        onClick: submit,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\submit_docs.jsx",
+            lineNumber: 93
+        },
+        __self: this
+    }, "Add Marks")))))))));
+}
+_s(SubmitDocs, "VM3uvRNDSUTMVxRKixMxzqCvr9g=");
+_c = SubmitDocs;
+exports.default = SubmitDocs;
+var _c;
+$RefreshReg$(_c, "SubmitDocs");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

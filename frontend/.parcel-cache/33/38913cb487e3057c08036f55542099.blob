@@ -1,0 +1,234 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _jspdf = require("jspdf");
+var _jspdfDefault = parcelHelpers.interopDefault(_jspdf);
+var _html2Canvas = require("html2canvas");
+var _html2CanvasDefault = parcelHelpers.interopDefault(_html2Canvas);
+var _ckeditor5React = require("@ckeditor/ckeditor5-react");
+var _ckeditor5BuildClassic = require("@ckeditor/ckeditor5-build-classic");
+var _ckeditor5BuildClassicDefault = parcelHelpers.interopDefault(_ckeditor5BuildClassic);
+var _s = $RefreshSig$();
+function panel_one_markingSchema() {
+    _s();
+    const [backBtn, setBackBtn] = _react.useState("inline");
+    const [downloadBtn, setDownloadBtn] = _react.useState("inline");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
+    const [MarkingSchemaDetails, setOneMarkingSchema] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/markingSchemes/oneMarkingSchema/" + id).then((res)=>setOneMarkingSchema(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    }, []);
+    function Download() {
+        const input = document.getElementById('pdfdiv');
+        _html2CanvasDefault.default(input).then((canvas)=>{
+            var imgWidth = 210;
+            var pageHeight = 290;
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new _jspdfDefault.default('p', 'mm', 'a4');
+            var position = 0;
+            var heightLeft = imgHeight;
+            pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+            pdf.save("Marking Schema - " + id + ".pdf");
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "dashboard-main-wrapper",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "dashboard-wrapper ",
+        id: "pdfdiv",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 50
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 53
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        style: {
+            paddingTop: '13%',
+            paddingLeft: '2%',
+            width: '98%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 54
+        },
+        __self: this
+    }, MarkingSchemaDetails.map((one_MarkingSchema, key)=>/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            id: "tableId",
+            className: "container-fluid bg-white",
+            style: {
+                paddingLeft: '5%',
+                paddingTop: '2%',
+                paddingBottom: '2%',
+                paddingRight: '5%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 58
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 59
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+            className: "text-uppercase text-black",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 60
+            },
+            __self: this
+        }, one_MarkingSchema.title), /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            style: {
+                fontSize: '15px',
+                lineHeight: '0px'
+            },
+            className: "mt-2",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 61
+            },
+            __self: this
+        }, "Status - ", one_MarkingSchema.status)), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 63
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                fontSize: '15px'
+            },
+            className: "mt-5",
+            dangerouslySetInnerHTML: {
+                __html: one_MarkingSchema.markingSchema
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+                lineNumber: 64
+            },
+            __self: this
+        }))
+    )), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "text-end ",
+        style: {
+            paddingTop: '3%',
+            paddingLeft: '2%',
+            width: '98%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 73
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-outline-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light'
+        },
+        onClick: ()=>window.location.href = "/Supervisor/SupervisorViewMarkingSchema"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 74
+        },
+        __self: this
+    }, "Back"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light',
+            display: downloadBtn
+        },
+        onClick: Download,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 77
+        },
+        __self: this
+    }, "Download"), ' ', "\xa0\xa0"), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 81
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 83
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\supervisor\\supervisor_one_schema.jsx",
+            lineNumber: 85
+        },
+        __self: this
+    })))));
+}
+_s(panel_one_markingSchema, "kg7SyO9xVKE9ez5JksXxU54hqaA=");
+exports.default = panel_one_markingSchema;
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -32,7 +32,7 @@ function TeamDashboard() {
     axios.get("http://localhost:5000/deadLine/AllDeadLine")
     .then(res => setAllDeadLine(res.data))
     .catch(error => console.log(error));
-  });
+  },[]);
 
 
   function setFunCategory(e){
@@ -54,7 +54,7 @@ function TeamDashboard() {
       axios.get("http://localhost:5000/team/OneTeam/"+username)
       .then(res => setTeamDetails(res.data))
       .catch(error => console.log(error));
-  });
+  },[]);
 
     function topicSubmit()
     {
@@ -97,12 +97,8 @@ function TeamDashboard() {
     };
     
 
-    function getNameOfSupervisor(id){
-        const getSupervisorName ={id}
-        axios.post("http://localhost:5000/staff/getSupervisor",getSupervisorName)
-        .then(res => setSupervisorName(res.data))
-        .catch(error => console.log(error));
-    }
+
+    
 
     function topicReSubmit(){
         const Description =    ReDescription.toString();
@@ -133,8 +129,8 @@ function TeamDashboard() {
             })
     }
 
-    function submitDocs(id){
-        
+    function submitDocs(id,title){
+        window.location.href = "/student/StudentSubmitDocs?id="+id+"&title="+title+"&username="+username;
     }
   return (
     <div>
@@ -421,7 +417,7 @@ function TeamDashboard() {
 
                             <div class="mb-3 mt-3" style={{display : (DeadLine.submissionType == 'Presentation')?'none':'inline'}}>
                                 <div class="text-end mt-2">
-                                    <button type="button" class="btn btn-outline-dark" onClick={() => submitDocs(DeadLine._id)}>Submit</button>
+                                    <button type="button" class="btn btn-outline-dark" onClick={() => submitDocs(DeadLine._id,DeadLine.title,username)}>Submit</button>
                                 </div>
                             </div>
                         </div>

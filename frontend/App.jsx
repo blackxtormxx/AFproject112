@@ -25,8 +25,13 @@ import PresentationEvolution from './components/member_panel/presentation_evalut
 import PanelViewMarkingSchema from './components/member_panel/panel_view_marking_schemes';
 import PanelViewOneMarkingSchema from './components/member_panel/panel_one_schema';
 import PanelMarksAdd from './components/member_panel/marks_add';
-
-
+import StudentSubmitDocs from './components/student/submit_docs';
+import SupervisorViewMarkingSchema from './components/supervisor/supervisor_view_marking_schemes';
+import SupervisorViewOneMarkingSchema from './components/supervisor/supervisor_one_schema';
+import Supervisor_eveluvate_doc from './components/supervisor/supervisor_eveluvate_docs';
+import SupervisorViewDocs from './components/supervisor/supervisor_view_docs';
+import SupervisorAddMarks from './components/supervisor/marks_add';
+import SupervisorGroupChat from './components/supervisor/group_chat';
 
 function App() {
   return (
@@ -49,6 +54,7 @@ function App() {
                 <Route exact path="/admin/StudentGroupManage"><StudentGroupManage/></Route>
                 <Route exact path="/admin/SupervisorDashboard"><SupervisorDashboard/></Route>
                 <Route exact path="/Supervisor/SupervisorGroup"><SupervisorGroup/></Route>
+                <Route exact path="/Supervisor/SupervisorViewMarkingSchema"><SupervisorViewMarkingSchema/></Route>
                 <Route exact path="/Supervisor/SupervisorViewTeam"><SupervisorViewTeam/></Route>
                 <Route exact path="/admin/AdminViewTeam"><AdminViewTeam/></Route>
                 <Route exact path="/panel/PanelDashboard"><PanelDashboard/></Route>
@@ -58,6 +64,12 @@ function App() {
                 <Route exact path="/panel/PanelViewMarkingSchema"><PanelViewMarkingSchema/></Route>
                 <Route exact path="/panel/PanelViewOneMarkingSchema"><PanelViewOneMarkingSchema/></Route>
                 <Route exact path="/panel/PanelMarksAdd"><PanelMarksAdd/></Route>
+                <Route exact path="/student/StudentSubmitDocs"><StudentSubmitDocs/></Route>
+                <Route exact path="/Supervisor/SupervisorViewOneMarkingSchema"><SupervisorViewOneMarkingSchema/></Route>
+                <Route exact path="/Supervisor/Supervisor_eveluvate_doc"><Supervisor_eveluvate_doc/></Route>
+                <Route exact path="/Supervisor/SupervisorViewDocs"><SupervisorViewDocs/></Route>
+                <Route exact path="/Supervisor/SupervisorAddMarks"><SupervisorAddMarks/></Route>
+                <Route exact path="/Supervisor/SupervisorGroupChat"><SupervisorGroupChat/></Route>
             </Switch>
       </Router>
 

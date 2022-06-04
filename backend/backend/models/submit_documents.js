@@ -7,15 +7,7 @@ const userSubmitDocuments = new Schema({
         required: true,
     },
 
-    supervisor: {
-        type: String,
-        required: true,
-    },
-
-    coSupervisor: {
-        type: String,
-        required: true,
-    },
+    
 
     file: {
         type: String,
@@ -33,6 +25,22 @@ const userSubmitDocuments = new Schema({
     },
 
     submitDateType: {
+        type: String,
+        required: true,
+    },
+
+    marks: {
+        type: String,
+        required: true,
+    },
+
+    
+    passStatus: {
+        type: String,
+        required: true,
+    },
+
+    remark: {
         type: String,
         required: true,
     },

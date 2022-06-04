@@ -26,6 +26,7 @@ router.route('/addMarkingSchema').post((req,res) => {
 
 
 
+
 router.route("/AllMarkingSchema").get((req,res) => {
     markingSchemes_model.find().then((MarkingSchema) => {
         res.json(MarkingSchema);

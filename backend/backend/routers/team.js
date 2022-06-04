@@ -10,8 +10,8 @@ router.route('/submit_topic').put((req,res) => {
     const id = req.body.username;   
     const researchTopic = req.body.researchTopic;
     const researchCategory = req.body.researchCategory;
-    const researchSupervisor = req.body.researchSupervisor;
-    const researchCoSupervisor = req.body.researchCoSupervisor;
+    const researchSupervisor = req.body.researchCoSupervisor;
+    const researchCoSupervisor = req.body.researchSupervisor;
     const description = req.body.description;
     const topicStatus = "Submitted";
 

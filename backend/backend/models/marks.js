@@ -10,6 +10,7 @@ const marksAddingSchema = new Schema({
     staffID: {
         type: String,
         required: true,
+        
     },
 
     submissionTitle : {

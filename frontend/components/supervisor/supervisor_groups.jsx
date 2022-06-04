@@ -27,7 +27,7 @@ function StudentGroupManage() {
                 confirmButtonText: "OK",
                 type: "success"}).then(okay => {
                     if (okay) {
-                        
+                        window.location.href = "/Supervisor/SupervisorGroup";
                 }
             });
 

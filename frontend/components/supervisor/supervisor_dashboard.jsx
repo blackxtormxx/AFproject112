@@ -10,8 +10,18 @@ function SupervisorDashboard() {
   }
  
 
+  function ViewMarkingSchema(){
+    window.location.href = "/Supervisor/SupervisorViewMarkingSchema";
+  }
  
-
+  
+  function EvaluateDocs(){
+    window.location.href = "/Supervisor/Supervisor_eveluvate_doc";
+  }
+ 
+  function groupChat(){
+    window.location.href = "/Supervisor/SupervisorGroupChat";
+  }
 
   return (
     <div >
@@ -38,10 +48,10 @@ function SupervisorDashboard() {
                         </div>
                         <div class="col-sm-4 mb-4 mt-4">
                           <div class="card" >
-                            <img src="https://thumbs.dreamstime.com/b/d-green-check-marks-red-mark-30276012.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
+                            <img src="https://www.designbombs.com/wp-content/uploads/2017/01/live-chat-apps-1280x720.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
                             <div class="card-body m-0 p-0 rounded" >
                               <div class="d-grid gap-2">
-                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase">Chat With Group</button>
+                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" onClick={groupChat}>Chat With Group</button>
                               </div>
                             </div>
                           </div>
@@ -51,7 +61,17 @@ function SupervisorDashboard() {
                             <img src="https://www.electrochem.org/wp-content/uploads/2018/01/deadline-web.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
                             <div class="card-body m-0 p-0 rounded" >
                               <div class="d-grid gap-2">
-                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" >Evaluate Documents</button>
+                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" onClick={EvaluateDocs}>Evaluate Documents</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4 mb-4 mt-4">
+                          <div class="card" >
+                            <img src="https://thumbs.dreamstime.com/b/d-green-check-marks-red-mark-30276012.jpg" style={{ width: '100%',height: '15vw',objectFit: 'cover'}} class="card-img-top" alt="..."/>
+                            <div class="card-body m-0 p-0 rounded" >
+                              <div class="d-grid gap-2">
+                                <button type="button "  class="btn btn-dark rounded-0 text-uppercase" onClick={ViewMarkingSchema}>MARKING Schema</button>
                               </div>
                             </div>
                           </div>

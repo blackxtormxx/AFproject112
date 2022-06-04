@@ -26,8 +26,10 @@ router.route('/addMarksSchema').post((req,res) => {
             console.log(err);
             res.status(400).send({status: "Error with Updating Data",error: err.message});
         }); 
-
 });
+
+
+
 
 module.exports = router;
 

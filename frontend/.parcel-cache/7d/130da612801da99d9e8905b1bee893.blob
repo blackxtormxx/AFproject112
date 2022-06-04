@@ -1,0 +1,458 @@
+var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _index = require("./components/home/index");
+var _indexDefault = parcelHelpers.interopDefault(_index);
+var _studentReg = require("./components/student/student_reg");
+var _studentRegDefault = parcelHelpers.interopDefault(_studentReg);
+var _login = require("./components/home/login");
+var _loginDefault = parcelHelpers.interopDefault(_login);
+var _teamDashboard = require("./components/student/teamDashboard");
+var _teamDashboardDefault = parcelHelpers.interopDefault(_teamDashboard);
+var _regDashboard = require("./components/home/reg_dashboard");
+var _regDashboardDefault = parcelHelpers.interopDefault(_regDashboard);
+var _staffReg = require("./components/staff/staff_reg");
+var _staffRegDefault = parcelHelpers.interopDefault(_staffReg);
+var _adminDashboard = require("./components/admin/admin_dashboard");
+var _adminDashboardDefault = parcelHelpers.interopDefault(_adminDashboard);
+var _adminViewStaff = require("./components/admin/admin_view_staff");
+var _adminViewStaffDefault = parcelHelpers.interopDefault(_adminViewStaff);
+var _staffOneView = require("./components/admin/staff_one_view");
+var _staffOneViewDefault = parcelHelpers.interopDefault(_staffOneView);
+var _adminViewMarkingSchemes = require("./components/admin/admin_view_marking_schemes");
+var _adminViewMarkingSchemesDefault = parcelHelpers.interopDefault(_adminViewMarkingSchemes);
+var _staffOneMarkingSchema = require("./components/admin/staff_one_markingSchema");
+var _staffOneMarkingSchemaDefault = parcelHelpers.interopDefault(_staffOneMarkingSchema);
+var _adminViewDeadline = require("./components/admin/admin_view_deadline");
+var _adminViewDeadlineDefault = parcelHelpers.interopDefault(_adminViewDeadline);
+var _oneDeadline = require("./components/admin/one_deadline");
+var _oneDeadlineDefault = parcelHelpers.interopDefault(_oneDeadline);
+var _studentGroupManage = require("./components/admin/studentGroupManage");
+var _studentGroupManageDefault = parcelHelpers.interopDefault(_studentGroupManage);
+var _supervisorDashboard = require("./components/supervisor/supervisor_dashboard");
+var _supervisorDashboardDefault = parcelHelpers.interopDefault(_supervisorDashboard);
+var _supervisorGroups = require("./components/supervisor/supervisor_groups");
+var _supervisorGroupsDefault = parcelHelpers.interopDefault(_supervisorGroups);
+var _supervisorViewTeam = require("./components/supervisor/supervisor_view_team");
+var _supervisorViewTeamDefault = parcelHelpers.interopDefault(_supervisorViewTeam);
+var _adminViewTeam = require("./components/admin/AdminViewTeam");
+var _adminViewTeamDefault = parcelHelpers.interopDefault(_adminViewTeam);
+var _panelDashboard = require("./components/member_panel/panel_dashboard");
+var _panelDashboardDefault = parcelHelpers.interopDefault(_panelDashboard);
+var _panelGroups = require("./components/member_panel/panel_groups");
+var _panelGroupsDefault = parcelHelpers.interopDefault(_panelGroups);
+var _panelViewTeam = require("./components/member_panel/panel_view_team");
+var _panelViewTeamDefault = parcelHelpers.interopDefault(_panelViewTeam);
+var _presentationEvalution = require("./components/member_panel/presentation_evalution");
+var _presentationEvalutionDefault = parcelHelpers.interopDefault(_presentationEvalution);
+var _panelViewMarkingSchemes = require("./components/member_panel/panel_view_marking_schemes");
+var _panelViewMarkingSchemesDefault = parcelHelpers.interopDefault(_panelViewMarkingSchemes);
+var _panelOneSchema = require("./components/member_panel/panel_one_schema");
+var _panelOneSchemaDefault = parcelHelpers.interopDefault(_panelOneSchema);
+var _marksAdd = require("./components/member_panel/marks_add");
+var _marksAddDefault = parcelHelpers.interopDefault(_marksAdd);
+var _submitDocs = require("./components/student/submit_docs");
+var _submitDocsDefault = parcelHelpers.interopDefault(_submitDocs);
+function App() {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 34
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 35
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Switch, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 36
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 37
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_indexDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 37
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/student/Reg",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 38
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_studentRegDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 38
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/Login",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 39
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_loginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 39
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/RegDashboard",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 40
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_regDashboardDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 40
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/student/TeamDashboard",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_teamDashboardDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/staff/StaffTReg",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_staffRegDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/AdminDashboard",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 43
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_adminDashboardDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 43
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/AdminViewStaff",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_adminViewStaffDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/AdminViewOneStaff",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 45
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_staffOneViewDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 45
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/ViewMarkingschemes",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_adminViewMarkingSchemesDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/OneMarkingSchemaView",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_staffOneMarkingSchemaDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/AdminViewDeadLines",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_adminViewDeadlineDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/OneDeadline",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_oneDeadlineDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/StudentGroupManage",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 50
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_studentGroupManageDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 50
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/SupervisorDashboard",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_supervisorDashboardDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/Supervisor/SupervisorGroup",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_supervisorGroupsDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/Supervisor/SupervisorViewTeam",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 53
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_supervisorViewTeamDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 53
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/admin/AdminViewTeam",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 54
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_adminViewTeamDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 54
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelDashboard",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 55
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_panelDashboardDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 55
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelStudentGroup",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_panelGroupsDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelViewTeam",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 57
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_panelViewTeamDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 57
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PresentationEvolution",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 58
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_presentationEvalutionDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 58
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelViewMarkingSchema",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_panelViewMarkingSchemesDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelViewOneMarkingSchema",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_panelOneSchemaDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/PanelMarksAdd",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 61
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_marksAddDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 61
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/panel/StudentSubmitDocs",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_submitDocsDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\App.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }))))));
+}
+_c = App;
+exports.default = App;
+var _c;
+$RefreshReg$(_c, "App");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
