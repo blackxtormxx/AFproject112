@@ -1,0 +1,796 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _ckeditor5React = require("@ckeditor/ckeditor5-react");
+var _ckeditor5BuildClassic = require("@ckeditor/ckeditor5-build-classic");
+var _ckeditor5BuildClassicDefault = parcelHelpers.interopDefault(_ckeditor5BuildClassic);
+var _moment = require("moment");
+var _momentDefault = parcelHelpers.interopDefault(_moment);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function AdminViewTeam() {
+    _s();
+    const username = _jsCookieDefault.default.get('user_name');
+    const [panelId, setPanelId] = _react.useState("");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
+    const [TeamDetails, setTeamDetails] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/team/OneTeam/" + id).then((res)=>setTeamDetails(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    const [AllPanels, setAllPanels] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/staff/AllPanels").then((res)=>setAllPanels(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    function back() {
+        window.location.href = "/admin/StudentGroupManage";
+    }
+    function savePanel(e) {
+        const updateMS = {
+            id,
+            panelId
+        };
+        _axiosDefault.default.put("http://localhost:5000/team/updatePanel", updateMS).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Panel Added",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Panel Not Added",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+            lineNumber: 69
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+            lineNumber: 70
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+            lineNumber: 71
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+            lineNumber: 72
+        },
+        __self: this
+    }, TeamDetails.map((TeamDetail, key)=>/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "container",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 74
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "row bg-light rounded p-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 75
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 76
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+            class: "card-title text-center pt-2 pb-2  text-uppercase text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 77
+            },
+            __self: this
+        }, "Your Group Details"), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            style: {
+                lineHeight: '0%'
+            },
+            class: "mb-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 80
+            },
+            __self: this
+        }, "Team Id - ", id)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "text-start mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "text-end mt-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            onClick: back,
+            class: "btn btn-outline-dark btn-sm",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 85
+            },
+            __self: this
+        }, "Back"), "\xa0"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-secondary mt-1",
+            role: "alert",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 87
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 88
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 89
+            },
+            __self: this
+        }, "Allcate Panel For Team"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+            class: "form-select",
+            onChange: (e)=>{
+                setPanelId(e.target.value);
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 90
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 93
+            },
+            __self: this
+        }, "Select A Panel"), AllPanels.map((panel)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+                value: panel.groupId,
+                __source: {
+                    fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                    lineNumber: 95
+                },
+                __self: this
+            }, panel.groupId)
+        ))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "text-end border-0",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 99
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-success btn-sm",
+            onClick: savePanel,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 100
+            },
+            __self: this
+        }, "Save"))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                display: TeamDetail.topicStatus == 'Not Submit' ? 'none' : 'inline'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 103
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 104
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 104
+            },
+            __self: this
+        }, "Selected Topic :"), " ", TeamDetail.researchTopic), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 105
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 105
+            },
+            __self: this
+        }, "Topic status :"), " ", TeamDetail.topicStatus), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, "Team status :"), " ", /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            style: {
+                color: TeamDetail.status == 'Active' ? 'Green' : 'Red'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, TeamDetail.status == 'Active' ? 'Approved' : 'Rejected')), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, "Panel ID :"), " ", /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, TeamDetail.panelId)), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 108
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 108
+            },
+            __self: this
+        }, "Research Category :"), " ", /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 108
+            },
+            __self: this
+        }, TeamDetail.researchCategory))), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 110
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                display: TeamDetail.topicStatus == 'Reject' ? 'inline' : 'none'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 111
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "alert alert-danger mt-3",
+            role: "alert",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 112
+            },
+            __self: this
+        }, "Your Research Topic Rejected. Please Re-submit New Topic. ", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-dark btn-sm",
+            "data-bs-target": "#reSubmit",
+            "data-bs-toggle": "modal",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 113
+            },
+            __self: this
+        }, "Click Me For Submit"))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                fontSize: '15px',
+                display: TeamDetail.topicStatus != 'Reject' ? 'inline' : 'none'
+            },
+            className: "mt-3",
+            dangerouslySetInnerHTML: {
+                __html: TeamDetail.description
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 117
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4 mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 122
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 123
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 124
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 125
+            },
+            __self: this
+        }, "Team Leader Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 126
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 127
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_one_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 129
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 130
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_one_reg)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 133
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 134
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_one_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 137
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 138
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_one_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 141
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 142
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 142
+            },
+            __self: this
+        }), TeamDetail.mem_one_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 148
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 149
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 150
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 151
+            },
+            __self: this
+        }, "First Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 152
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 153
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_two_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 155
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 156
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_two_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 159
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 160
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_two_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 163
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 164
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_two_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 167
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 168
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 168
+            },
+            __self: this
+        }), TeamDetail.mem_two_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-2",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 174
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 175
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 176
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 177
+            },
+            __self: this
+        }, "Second Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 178
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 179
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_three_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 181
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 182
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_two_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 185
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 186
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_three_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 189
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 190
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_three_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 193
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 194
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 194
+            },
+            __self: this
+        }), TeamDetail.mem_three_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-2",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 200
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 201
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 202
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 203
+            },
+            __self: this
+        }, "Fourth Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 204
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 205
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_four_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 207
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 208
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_four_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 211
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 212
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_four_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 215
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 216
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_four_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 219
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 220
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\AdminViewTeam.jsx",
+                lineNumber: 220
+            },
+            __self: this
+        }), TeamDetail.mem_four_specialize)))))))
+    )))));
+}
+_s(AdminViewTeam, "WNQt76V1FPKfRz0cekIPfdBK3nc=");
+_c = AdminViewTeam;
+exports.default = AdminViewTeam;
+var _c;
+$RefreshReg$(_c, "AdminViewTeam");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

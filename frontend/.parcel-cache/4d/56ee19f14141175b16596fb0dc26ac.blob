@@ -1,0 +1,248 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _styleCss = require("../src/style.css");
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+function PanelDashboard() {
+    function topicEvolution() {
+        window.location.href = "/panel/PanelStudentGroup?id=" + _jsCookieDefault.default.get('user_name');
+    }
+    function presentationEvolution() {
+        window.location.href = "/panel/PresentationEvolution";
+    }
+    function PanelViewMarkingSchema() {
+        window.location.href = "/panel/PanelViewMarkingSchema";
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 22
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 23
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 24
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 25
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 26
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 27
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 28
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 29
+        },
+        __self: this
+    }, "Panel DASHBOARD")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-4 mb-4 mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 34
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 35
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+        src: "https://eitrawmaterials.eu/wp-content/uploads/2019/05/Label-brochure-1.jpg",
+        style: {
+            width: '100%',
+            height: '15vw',
+            objectFit: 'cover'
+        },
+        class: "card-img-top",
+        alt: "...",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 36
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body m-0 p-0 rounded",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 37
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "d-grid gap-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 38
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button ",
+        class: "btn btn-dark rounded-0 text-uppercase",
+        onClick: topicEvolution,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 39
+        },
+        __self: this
+    }, "Your Groups"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-4 mb-4 mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 45
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+        src: "https://virtualspeech.com/img/blog/group-presentation-business.jpg",
+        style: {
+            width: '100%',
+            height: '15vw',
+            objectFit: 'cover'
+        },
+        class: "card-img-top",
+        alt: "...",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body m-0 p-0 rounded",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 47
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "d-grid gap-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button ",
+        class: "btn btn-dark rounded-0 text-uppercase",
+        onClick: presentationEvolution,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    }, "Presentation Evaluate"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-4 mb-4 mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 54
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 55
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+        src: "https://thumbs.dreamstime.com/b/d-green-check-marks-red-mark-30276012.jpg",
+        style: {
+            width: '100%',
+            height: '15vw',
+            objectFit: 'cover'
+        },
+        class: "card-img-top",
+        alt: "...",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 56
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body m-0 p-0 rounded",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 57
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "d-grid gap-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 58
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button ",
+        class: "btn btn-dark rounded-0 text-uppercase",
+        onClick: PanelViewMarkingSchema,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_dashboard.jsx",
+            lineNumber: 59
+        },
+        __self: this
+    }, "MARKING Schema")))))))))));
+}
+_c = PanelDashboard;
+exports.default = PanelDashboard;
+var _c;
+$RefreshReg$(_c, "PanelDashboard");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

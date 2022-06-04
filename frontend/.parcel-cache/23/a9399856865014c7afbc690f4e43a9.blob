@@ -1,0 +1,921 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function StudentGroupManage() {
+    _s();
+    const id = Math.floor(Math.random() * 100);
+    const [groupId, setGroupId] = _react.useState("PG" + id);
+    const [memberOne, setMemOne] = _react.useState("");
+    const [memberTwo, setMemTwo] = _react.useState("");
+    const [memberThree, setMemThree] = _react.useState("");
+    const [Specialize, setSpecialize] = _react.useState("");
+    const [AllPanelMembers, setAllPanelMembers] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/staff/allPanelMembers").then((res)=>setAllPanelMembers(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    const [AllTeams, setAllTeams] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/team/allTeam").then((res)=>setAllTeams(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    const [AllPanels, setAllPanels] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/staff/AllPanels").then((res)=>setAllPanels(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    function panelCreate(e) {
+        e.preventDefault();
+        const groupId1 = "PG" + id;
+        const addPanelSchema = {
+            groupId: groupId1,
+            memberOne,
+            memberTwo,
+            memberThree,
+            Specialize
+        };
+        _axiosDefault.default.post("http://localhost:5000/staff/panelCreate", addPanelSchema).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Panel Adding Success!",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) {
+                    const id1 = Math.floor(Math.random() * 100);
+                    setGroupId("PG" + id1);
+                    _axiosDefault.default.get("http://localhost:5000/panel/AllPanels").then((res)=>setAllPanelMembers(res.data)
+                    ).catch((error)=>console.log(error)
+                    );
+                    setGroupId("");
+                    setMemOne("");
+                    setMemTwo("");
+                    setMemThree("");
+                    setSpecialize("");
+                }
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Try again. You tried to create a panel with current panel members.",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function deletePanel(id1) {
+        _axiosDefault.default.delete("http://localhost:5000/staff/deletePanel/" + id1).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Panel Deleted ",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) _axiosDefault.default.get("http://localhost:5000/staff/AllPanels").then((res)=>setAllPanels(res.data)
+                ).catch((error)=>console.log(error)
+                );
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Panel Not Deleted",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function viewTopic(id1) {
+        window.location.href = "/admin/AdminViewTeam?id=" + id1;
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 106
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 107
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 108
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 109
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 110
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 111
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 112
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 113
+        },
+        __self: this
+    }, "Group Management"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "text-end mt-5",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 116
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-outline-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light'
+        },
+        "data-bs-toggle": "modal",
+        "data-bs-target": "#exampleModal",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 117
+        },
+        __self: this
+    }, "Create A Panel"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-outline-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light'
+        },
+        onClick: ()=>window.location.href = "/admin/AdminDashboard"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 120
+        },
+        __self: this
+    }, "Back")))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal fade",
+        id: "exampleModal",
+        tabindex: "-1",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 126
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal-dialog modal-dialog-centered modal-xl",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 127
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal-content",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 128
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal-header bg-dark text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 129
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: "modal-title text-warning",
+        id: "exampleModalLabel",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 130
+        },
+        __self: this
+    }, "Panel Management"), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn-close",
+        "data-bs-dismiss": "modal",
+        "aria-label": "Close",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 131
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal-body text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 133
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "bg-light p-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 134
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: " mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 135
+        },
+        __self: this
+    }, "Panel Registration Form."), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 136
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 137
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: " text-start  mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 138
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 139
+        },
+        __self: this
+    }, "Group ID"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        disabled: true,
+        value: groupId,
+        class: "form-control",
+        onChange: (e)=>{
+            setGroupId(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 140
+        },
+        __self: this
+    }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 145
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: " text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 146
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 147
+        },
+        __self: this
+    }, "Member One"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemOne(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 148
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 151
+        },
+        __self: this
+    }, "Select Member One"), AllPanelMembers.map((PanelMembers)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: PanelMembers.email,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 153
+            },
+            __self: this
+        }, PanelMembers.name, " - ", PanelMembers.Specialize)
+    )))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 158
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: " text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 159
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 160
+        },
+        __self: this
+    }, "Member Two"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemTwo(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 161
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 164
+        },
+        __self: this
+    }, "Select Member Two"), AllPanelMembers.map((PanelMembers)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: PanelMembers.email,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 166
+            },
+            __self: this
+        }, PanelMembers.name, " - ", PanelMembers.Specialize)
+    )))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 171
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: " text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 172
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 173
+        },
+        __self: this
+    }, "Member Three"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemThree(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 174
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 177
+        },
+        __self: this
+    }, "Select Member Three"), AllPanelMembers.map((PanelMembers)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: PanelMembers.email,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 179
+            },
+            __self: this
+        }, PanelMembers.name, " - ", PanelMembers.Specialize)
+    )))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 184
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: " text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 185
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 186
+        },
+        __self: this
+    }, "Specialize For"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        type: "text",
+        class: "form-select",
+        onChange: (e)=>{
+            setSpecialize(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 187
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 190
+        },
+        __self: this
+    }, "Select Specialize For"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Machine Learning",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 191
+        },
+        __self: this
+    }, "Machine Learning"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Web Technology",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 192
+        },
+        __self: this
+    }, "Web Technology"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Networking",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 193
+        },
+        __self: this
+    }, "Networking"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Cryptography",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 194
+        },
+        __self: this
+    }, "Cryptography"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "IOT",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 195
+        },
+        __self: this
+    }, "IOT"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Cyber Security",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 196
+        },
+        __self: this
+    }, "Cyber Security")))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "modal-footer border-0",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 200
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn-sm btn btn-primary",
+        onClick: panelCreate,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 201
+        },
+        __self: this
+    }, "Panel Create")))), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 205
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("table", {
+        class: "table",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 206
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("thead", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 207
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("tr", {
+        class: "bg-dark text-white",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 208
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 209
+        },
+        __self: this
+    }, "Panel Id"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 210
+        },
+        __self: this
+    }, "Member One"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 211
+        },
+        __self: this
+    }, "Member Two"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 212
+        },
+        __self: this
+    }, "Member Three"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 213
+        },
+        __self: this
+    }, "Specialize"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        style: {
+            width: '20%'
+        },
+        class: "text-center",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 214
+        },
+        __self: this
+    }, "Action"))), /*#__PURE__*/ _reactDefault.default.createElement("tbody", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 217
+        },
+        __self: this
+    }, AllPanels.map((panel)=>/*#__PURE__*/ _reactDefault.default.createElement("tr", {
+            class: "text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 219
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 220
+            },
+            __self: this
+        }, panel.groupId), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 221
+            },
+            __self: this
+        }, panel.memberOne), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 222
+            },
+            __self: this
+        }, panel.memberTwo), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 223
+            },
+            __self: this
+        }, panel.memberThree), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 224
+            },
+            __self: this
+        }, panel.Specialize), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            style: {
+                width: '20%'
+            },
+            class: "text-center",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 225
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-outline-danger btn-sm",
+            onClick: ()=>deletePanel(panel._id)
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 226
+            },
+            __self: this
+        }, "Delete"), "\xa0\xa0"))
+    ))))))), /*#__PURE__*/ _reactDefault.default.createElement("table", {
+        class: "table",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 237
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("thead", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 238
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("tr", {
+        class: "bg-dark text-white",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 239
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 240
+        },
+        __self: this
+    }, "Group Id"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 241
+        },
+        __self: this
+    }, "Member One"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 242
+        },
+        __self: this
+    }, "Member Two"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 243
+        },
+        __self: this
+    }, "Member Three"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 244
+        },
+        __self: this
+    }, "Member Four"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 245
+        },
+        __self: this
+    }, "Research Area"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 246
+        },
+        __self: this
+    }, "Research Topic"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 247
+        },
+        __self: this
+    }, "Allocated Staff"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        class: "text-center",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 248
+        },
+        __self: this
+    }, "Action"))), /*#__PURE__*/ _reactDefault.default.createElement("tbody", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+            lineNumber: 251
+        },
+        __self: this
+    }, AllTeams.map((team)=>/*#__PURE__*/ _reactDefault.default.createElement("tr", {
+            class: "bg-white text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 253
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 254
+            },
+            __self: this
+        }, team.groupId), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 255
+            },
+            __self: this
+        }, team.mem_one_reg), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 256
+            },
+            __self: this
+        }, team.mem_two_regNum), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 257
+            },
+            __self: this
+        }, team.mem_three_name), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 258
+            },
+            __self: this
+        }, team.mem_four_name), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 259
+            },
+            __self: this
+        }, team.researchCategory), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 260
+            },
+            __self: this
+        }, team.researchTopic), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 261
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 262
+            },
+            __self: this
+        }, "Supervisor : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 262
+            },
+            __self: this
+        }), team.researchSupervisor), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 263
+            },
+            __self: this
+        }, "Co -Supervisor : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 263
+            },
+            __self: this
+        }), team.researchCoSupervisor), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 264
+            },
+            __self: this
+        }, "Panel : ", team.panelId)), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            class: "text-center",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 266
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-sm btn-success",
+            onClick: ()=>viewTopic(team.groupId)
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\studentGroupManage.jsx",
+                lineNumber: 267
+            },
+            __self: this
+        }, "More")))
+    ))))))));
+}
+_s(StudentGroupManage, "X6tDa1fgXKgN6L91Q/4Xi/J93vQ=");
+_c = StudentGroupManage;
+exports.default = StudentGroupManage;
+var _c;
+$RefreshReg$(_c, "StudentGroupManage");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

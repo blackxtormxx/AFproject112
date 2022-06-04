@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>RPManager</title>
+       <link rel="shortcut icon" href="7c75bd996524b1f4d1d950f8109780cd">
+
+       <link href="5dbcf16fa738f632b7cf8e956ab08256" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+       <script src="e9b4ee65a1fdb59a744ddcec579be972" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+       <script src="8e6b54172d605525dd9b6353d47d3499" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+       <script src="fc0257e449194725ccb277793ff58bec" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="ce47cc8382144212a2fab6301680b585">
+       <style data-parcel-key="de5aec02f977fff39a4230803ac02925">
+            .global-container{
+                background-image: url("./components/src/wallpapre.jpg");
+                height: 100vh;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .global-container3{
+                background-image: url("./components/src/wallpapre.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .ck-editor__editable {
+                min-height: 500px;
+            }
+
+            .global-container2{
+                background: linear-gradient(to bottom, #b0ebe3, #ffffff);
+            }
+            .login-form{ 
+                width:430px;
+                margin:20px;
+            }
+       </style> 
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="400d348cf575c4d63a61c06670135790"></script>
+    
+</html>

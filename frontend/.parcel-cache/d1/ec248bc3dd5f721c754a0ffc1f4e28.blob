@@ -1,0 +1,296 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _homePageNav = require("../navbars/homePageNav");
+var _homePageNavDefault = parcelHelpers.interopDefault(_homePageNav);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function Login() {
+    _s();
+    const [username, setUserName] = _react.useState("");
+    const [password, setPassword] = _react.useState("");
+    function register() {
+        window.location.href = "/student/Reg";
+    }
+    async function login(e) {
+        e.preventDefault();
+        let item = {
+            username,
+            password
+        };
+        let result = await fetch("http://localhost:5000/user/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(item)
+        });
+        result = await result.json();
+        console.log(JSON.stringify(result.message));
+        if (JSON.stringify(result.message) === '"Admin"') {
+            _jsCookieDefault.default.set('user_name', username, {
+                expires: 70000,
+                path: ''
+            });
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Login Success",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/admin/AdminDashboard";
+            });
+        } else if (JSON.stringify(result.message) === '"Team"') {
+            _jsCookieDefault.default.set('user_name', username, {
+                expires: 70000,
+                path: ''
+            });
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Login Success",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/student/TeamDashboard";
+            });
+        } else if (JSON.stringify(result.message) === '"Supervisor"') {
+            _jsCookieDefault.default.set('user_name', username, {
+                expires: 70000,
+                path: ''
+            });
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Login Success",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/admin/SupervisorDashboard";
+            });
+        } else if (JSON.stringify(result.message) === '"Co-Supervisor"') {
+            _jsCookieDefault.default.set('user_name', username, {
+                expires: 70000,
+                path: ''
+            });
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Login Success",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/admin/SupervisorDashboard";
+            });
+        } else if (JSON.stringify(result.message) === '"Panel Member"') {
+            _jsCookieDefault.default.set('user_name', username, {
+                expires: 70000,
+                path: ''
+            });
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Login Success",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/panel/PanelDashboard";
+            });
+        } else _sweetalert2Default.default.fire({
+            title: "Error!",
+            text: "Login Not Success",
+            icon: 'error',
+            confirmButtonText: "OK",
+            type: "success"
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 108
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_homePageNavDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 109
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container",
+        style: {
+            paddingTop: '9%',
+            paddingBottom: '1%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 110
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 111
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card login-form shadow border-0 ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 112
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-head bg-header rounded-top",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 113
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h4", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 114
+        },
+        __self: this
+    }, "Login Page")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 118
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-text",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 119
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("form", {
+        action: "#",
+        method: "post",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 120
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 121
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+        className: "fw-normal text-black-50 text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 122
+        },
+        __self: this
+    }, "User Name :"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        class: "form-control",
+        type: "text",
+        onChange: (e)=>{
+            setUserName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 123
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 127
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+        className: "fw-normal text-black-50 text-start",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 128
+        },
+        __self: this
+    }, "Password :"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        class: "form-control",
+        type: "password",
+        onChange: (e)=>{
+            setPassword(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 129
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mt-3 mb-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 134
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "d-grid gap-2",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 135
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        onClick: login,
+        class: "btn text-white  d-letter-spacing shadow-0 fw-light",
+        style: {
+            backgroundColor: '#1E1E1E'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 136
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        className: "h6",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 136
+        },
+        __self: this
+    }, "Login")), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+        style: {
+            cursor: 'pointer'
+        },
+        onClick: register,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\login.jsx",
+            lineNumber: 137
+        },
+        __self: this
+    }, "Do you want to register?")))))))))));
+}
+_s(Login, "meijDkpw0epgCg7aYKkurw3Erpg=");
+_c = Login;
+exports.default = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

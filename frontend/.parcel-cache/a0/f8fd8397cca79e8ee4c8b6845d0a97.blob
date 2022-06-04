@@ -1,0 +1,61 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _homePageNav = require("../navbars/homePageNav");
+var _homePageNavDefault = parcelHelpers.interopDefault(_homePageNav);
+var _styleCss = require("../src/style.css");
+function Index() {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\index.jsx",
+            lineNumber: 7
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_homePageNavDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\index.jsx",
+            lineNumber: 8
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("img", {
+        src: "https://i.imgur.com/3E03VNY.jpeg",
+        class: "img-fluid",
+        width: "100%",
+        alt: "...",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\index.jsx",
+            lineNumber: 9
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "bg-black  pt-3 pb-3 ps-5 pe-5",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\index.jsx",
+            lineNumber: 10
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("br", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\home\\index.jsx",
+            lineNumber: 11
+        },
+        __self: this
+    }))));
+}
+_c = Index;
+exports.default = Index;
+var _c;
+$RefreshReg$(_c, "Index");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

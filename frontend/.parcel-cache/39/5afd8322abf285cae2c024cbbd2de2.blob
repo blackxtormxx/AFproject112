@@ -1,0 +1,132 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function HomeNavBar() {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 5
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("nav", {
+        class: "navbar navbar-expand-lg navbar-dark bg-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 6
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container-fluid",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 7
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+        class: "navbar-brand text-muted",
+        href: "#",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 8
+        },
+        __self: this
+    }, "AFGlobal-2021"), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        class: "navbar-toggler",
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#navbarNavDropdown",
+        "aria-controls": "navbarNavDropdown",
+        "aria-expanded": "false",
+        "aria-label": "Toggle navigation",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 9
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        class: "navbar-toggler-icon",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 10
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "collapse navbar-collapse",
+        id: "navbarNavDropdown",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 12
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("ul", {
+        class: "navbar-nav",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 13
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("li", {
+        class: "nav-item",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 14
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+        class: "nav-link ",
+        "aria-current": "page",
+        href: "#",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 15
+        },
+        __self: this
+    }, "Privacy Policy")), /*#__PURE__*/ _reactDefault.default.createElement("li", {
+        class: "nav-item",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 17
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+        class: "nav-link",
+        href: "#",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 18
+        },
+        __self: this
+    }, "Contact Us")), /*#__PURE__*/ _reactDefault.default.createElement("li", {
+        class: "nav-item",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 20
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+        class: "nav-link",
+        href: "#",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\footer\\footer.jsx",
+            lineNumber: 21
+        },
+        __self: this
+    }, "Help"))))))));
+}
+_c = HomeNavBar;
+exports.default = HomeNavBar;
+var _c;
+$RefreshReg$(_c, "HomeNavBar");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

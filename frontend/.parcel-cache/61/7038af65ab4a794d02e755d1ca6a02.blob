@@ -1,0 +1,1025 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _homePageNav = require("../navbars/homePageNav");
+var _homePageNavDefault = parcelHelpers.interopDefault(_homePageNav);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _reactNumberFormat = require("react-number-format");
+var _reactNumberFormatDefault = parcelHelpers.interopDefault(_reactNumberFormat);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+const Specializations = [
+    'BSc (Hons) in Information Technology Specializing in Information Technology',
+    'BSc (Hons) in Information Technology Specializing in Computer Systems & Network Engineering',
+    'BSc (Hons) in Information Technology Specializing in Information Systems Engineering',
+    'BSc (Hons) in Information Technology Specializing in Cyber Security',
+    'BSc (Hons) in Information Technology Specializing in Interactive Media',
+    'BSc (Hons) in Information Technology Specializing in Data Science'
+];
+function Reg() {
+    _s();
+    const id = Math.floor(Math.random() * 100);
+    const [groupId, setGroupId] = _react.useState("RP" + id);
+    const [groupPassword, setGroupPassword] = _react.useState("");
+    const [mem_one_name, setMemOneName] = _react.useState("");
+    const [mem_one_reg, setMemOneRegNum] = _react.useState("");
+    const [mem_one_email, setMemOneEmail] = _react.useState("");
+    const [mem_one_tel, setMemOneTel] = _react.useState("");
+    const [mem_one_specialize, setMemOneSpecialization] = _react.useState("");
+    const [mem_two_name, setMemTwoName] = _react.useState("");
+    const [mem_two_regNum, setMemTwoReg] = _react.useState("");
+    const [mem_two_email, setMemTwoEmail] = _react.useState("");
+    const [mem_two_tel, setMemTwotel] = _react.useState("");
+    const [mem_two_specialize, setMemTwoNSpecialization] = _react.useState("");
+    const [mem_three_name, setMemThreeName] = _react.useState("");
+    const [mem_three_regNum, setMemThreeReg] = _react.useState("");
+    const [mem_three_email, setMemThreeEmail] = _react.useState("");
+    const [mem_three_tel, setMemThreeTel] = _react.useState("");
+    const [mem_three_specialize, setMemThreeSpecialization] = _react.useState("");
+    const [mem_four_name, setMemFourName] = _react.useState("");
+    const [mem_four_regNum, setMemFourReg] = _react.useState("");
+    const [mem_four_email, setMemFourEmail] = _react.useState("");
+    const [mem_four_tel, setMemFourTel] = _react.useState("");
+    const [mem_four_specialize, setMemFourSpecialization] = _react.useState("");
+    function loginAsStaff() {
+        window.location.href = "/Login";
+    }
+    function submit(e) {
+        e.preventDefault();
+        const groupId1 = "RP" + id;
+        const teamReg = {
+            groupId: groupId1,
+            groupPassword,
+            mem_one_name,
+            mem_one_reg,
+            mem_one_email,
+            mem_one_tel,
+            mem_one_specialize,
+            mem_two_name,
+            mem_two_regNum,
+            mem_two_email,
+            mem_two_tel,
+            mem_two_specialize,
+            mem_three_name,
+            mem_three_regNum,
+            mem_three_email,
+            mem_three_tel,
+            mem_three_specialize,
+            mem_four_name,
+            mem_four_regNum,
+            mem_four_email,
+            mem_four_tel,
+            mem_four_specialize
+        };
+        _axiosDefault.default.post("http://localhost:5000/team/team_registration", teamReg).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Team Registration Success!",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/Login";
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Team Registration Not Success",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 78
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_homePageNavDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 79
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 80
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 81
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 83
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 84
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h4", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 85
+        },
+        __self: this
+    }, "Create A Group")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 89
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 90
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-5",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 91
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 92
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 93
+        },
+        __self: this
+    }, "Group ID"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        disabled: true,
+        value: groupId,
+        class: "form-control",
+        onChange: (e)=>{
+            setGroupId(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 94
+        },
+        __self: this
+    }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-7",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 99
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 100
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 101
+        },
+        __self: this
+    }, "Group Password"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "password",
+        class: "form-control",
+        onChange: (e)=>{
+            setGroupPassword(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 102
+        },
+        __self: this
+    }))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 109
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 110
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 111
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: "card-title",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 112
+        },
+        __self: this
+    }, "Team Leader Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 113
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 114
+        },
+        __self: this
+    }, "Team Leader's Name"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemOneName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 115
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 119
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 120
+        },
+        __self: this
+    }, "Team Leader's Student Registration Number"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemOneRegNum(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 121
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 125
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 126
+        },
+        __self: this
+    }, "Team Leader's Email"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "email",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemOneEmail(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 127
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 131
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 132
+        },
+        __self: this
+    }, "Team Leader's Telephone"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        placeholder: "Telephone Number",
+        onChange: (e)=>{
+            setMemOneTel(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 133
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 136
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 137
+        },
+        __self: this
+    }, "Team Leader's Specialization"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemOneSpecialization(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 138
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 141
+        },
+        __self: this
+    }, "Select Specialization"), Specializations.map((Specialization)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: Specialization,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+                lineNumber: 143
+            },
+            __self: this
+        }, Specialization)
+    )))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 150
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 151
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 152
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: "card-title",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 153
+        },
+        __self: this
+    }, "Member One"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 154
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 155
+        },
+        __self: this
+    }, "Member One's Name"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemTwoName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 156
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 160
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 161
+        },
+        __self: this
+    }, "Member One's Student Registration Number"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemTwoReg(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 162
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 166
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 167
+        },
+        __self: this
+    }, "Member One's Email"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "email",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemTwoEmail(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 168
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 172
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 173
+        },
+        __self: this
+    }, "Member One's Telephone"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        placeholder: "Telephone Number",
+        onChange: (e)=>{
+            setMemTwotel(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 174
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 177
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 178
+        },
+        __self: this
+    }, "Team Leader's Specialization"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemTwoNSpecialization(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 179
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 182
+        },
+        __self: this
+    }, "Select Specialization"), Specializations.map((Specialization)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: Specialization,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+                lineNumber: 184
+            },
+            __self: this
+        }, Specialization)
+    )))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 191
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 192
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 193
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: "card-title",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 194
+        },
+        __self: this
+    }, "Member Two"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 195
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 196
+        },
+        __self: this
+    }, "Member Two's Name"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemThreeName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 197
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 201
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 202
+        },
+        __self: this
+    }, "Member Two's Student Registration Number"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemThreeReg(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 203
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 207
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 208
+        },
+        __self: this
+    }, "Member Two's Email"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "email",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemThreeEmail(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 209
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 213
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 214
+        },
+        __self: this
+    }, "Member Two's Telephone"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        placeholder: "Telephone Number",
+        onChange: (e)=>{
+            setMemThreeTel(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 215
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 218
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 219
+        },
+        __self: this
+    }, "Team Leader's Specialization"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemThreeSpecialization(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 220
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 223
+        },
+        __self: this
+    }, "Select Specialization"), Specializations.map((Specialization)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: Specialization,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+                lineNumber: 225
+            },
+            __self: this
+        }, Specialization)
+    )))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 232
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 233
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "card-body ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 234
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+        class: "card-title",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 235
+        },
+        __self: this
+    }, "Member Three"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 236
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 237
+        },
+        __self: this
+    }, "Member Three's Name"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemFourName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 238
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 242
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 243
+        },
+        __self: this
+    }, "Member Three's Student Registration Number"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemFourReg(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 244
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 248
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 249
+        },
+        __self: this
+    }, "Member Three's Email"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "email",
+        class: "form-control",
+        onChange: (e)=>{
+            setMemFourEmail(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 250
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 254
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 255
+        },
+        __self: this
+    }, "Member Three's Telephone"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        placeholder: "Telephone Number",
+        onChange: (e)=>{
+            setMemFourTel(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 256
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 259
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 260
+        },
+        __self: this
+    }, "Team Leader's Specialization"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        class: "form-select",
+        onChange: (e)=>{
+            setMemFourSpecialization(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 261
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 264
+        },
+        __self: this
+    }, "Select Specialization"), Specializations.map((Specialization)=>/*#__PURE__*/ _reactDefault.default.createElement("option", {
+            value: Specialization,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+                lineNumber: 266
+            },
+            __self: this
+        }, Specialization)
+    )))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 273
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-end mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 274
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-outline-dark",
+        onClick: ()=>window.location.href = "/RegDashboard"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 275
+        },
+        __self: this
+    }, "Back"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-dark",
+        onClick: submit,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\student\\student_reg.jsx",
+            lineNumber: 276
+        },
+        __self: this
+    }, "Submit Group")))))))));
+}
+_s(Reg, "MEKtNbuOeCe0wmPPDJqYZFQNJ4o=");
+_c = Reg;
+exports.default = Reg;
+var _c;
+$RefreshReg$(_c, "Reg");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,356 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function TeamDashboard() {
+    _s();
+    const [all_Staff, setAllStaff] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/staff/allStaff").then((res)=>setAllStaff(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    function updateStaff(id, status) {
+        const staffStatusUpdate = {
+            id,
+            status
+        };
+        _axiosDefault.default.put("http://localhost:5000/staff/updateStaffStatus", staffStatusUpdate).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Registration Request " + status,
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) _axiosDefault.default.get("http://localhost:5000/staff/allStaff").then((res)=>setAllStaff(res.data)
+                ).catch((error)=>console.log(error)
+                );
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Registration Request Not " + status,
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function deleteStaff(id) {
+        _axiosDefault.default.delete("http://localhost:5000/staff/deleteStaffStatus/" + id).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Staff Deleted ",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) _axiosDefault.default.get("http://localhost:5000/staff/allStaff").then((res)=>setAllStaff(res.data)
+                ).catch((error)=>console.log(error)
+                );
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Staff Not Deleted",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function viewStaff(id) {
+        window.location.href = '/admin/AdminViewOneStaff?id=' + id;
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 83
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 84
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 85
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 86
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 87
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 88
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 89
+        },
+        __self: this
+    }, "STAFF MANAGEMENT"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "text-end mt-5",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 92
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-outline-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light'
+        },
+        onClick: ()=>window.location.href = "/admin/AdminDashboard"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 93
+        },
+        __self: this
+    }, "Back")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "table-responsive mt-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 97
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("table", {
+        class: "table",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 98
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("thead", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 99
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("tr", {
+        class: "bg-dark text-white",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 100
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 101
+        },
+        __self: this
+    }, "Name"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 102
+        },
+        __self: this
+    }, "Telephone Number"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 103
+        },
+        __self: this
+    }, "Email"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 104
+        },
+        __self: this
+    }, "User Type"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 105
+        },
+        __self: this
+    }, "Specialize"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 106
+        },
+        __self: this
+    }, "Status"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        class: "text-center",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 107
+        },
+        __self: this
+    }, "Action"))), /*#__PURE__*/ _reactDefault.default.createElement("tbody", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+            lineNumber: 110
+        },
+        __self: this
+    }, all_Staff.map((staff)=>/*#__PURE__*/ _reactDefault.default.createElement("tr", {
+            class: "bg-white text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 112
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 113
+            },
+            __self: this
+        }, staff.name), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 114
+            },
+            __self: this
+        }, staff.tel), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 115
+            },
+            __self: this
+        }, staff.email), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 116
+            },
+            __self: this
+        }, staff.userType), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 117
+            },
+            __self: this
+        }, staff.Specialize), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 118
+            },
+            __self: this
+        }, staff.status), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            class: "text-center",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 119
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-outline-danger btn-sm",
+            onClick: ()=>deleteStaff(staff._id)
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 120
+            },
+            __self: this
+        }, "Delete"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-outline-secondary btn-sm",
+            onClick: ()=>viewStaff(staff._id)
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 121
+            },
+            __self: this
+        }, "View"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            style: {
+                display: staff.status === 'Deactivate' || staff.status === 'Hold' || staff.status === 'Reject' ? 'inline' : 'none'
+            },
+            class: "btn btn-outline-success btn-sm",
+            onClick: ()=>updateStaff(staff.email, 'Active')
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 122
+            },
+            __self: this
+        }, "Active"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            style: {
+                display: staff.status === 'Active' ? 'inline' : 'none'
+            },
+            class: "btn btn-outline-warning btn-sm",
+            onClick: ()=>updateStaff(staff.email, 'Deactivate')
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 123
+            },
+            __self: this
+        }, "Deactivate"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            style: {
+                display: staff.status === 'Hold' ? 'inline' : 'none'
+            },
+            class: "btn btn-outline-warning btn-sm",
+            onClick: ()=>updateStaff(staff.email, 'Reject')
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\admin\\admin_view_staff.jsx",
+                lineNumber: 124
+            },
+            __self: this
+        }, "Reject"), "\xa0\xa0"))
+    )))))))))));
+}
+_s(TeamDashboard, "5I10PqDOkuzMH5FXj6uG4UhiNkE=");
+_c = TeamDashboard;
+exports.default = TeamDashboard;
+var _c;
+$RefreshReg$(_c, "TeamDashboard");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

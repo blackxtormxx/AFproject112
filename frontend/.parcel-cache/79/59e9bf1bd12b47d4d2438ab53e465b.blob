@@ -1,0 +1,519 @@
+!function(t, r) {
+    "object" == typeof exports && "undefined" != typeof module ? r(exports) : "function" == typeof define && define.amd ? define([
+        "exports"
+    ], r) : r((t = "undefined" != typeof globalThis ? globalThis : t || self).svgpathdata = {
+    });
+}(this, function(t) {
+    "use strict";
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */ var r = function(t1, e) {
+        return (r = Object.setPrototypeOf || ({
+            __proto__: []
+        }) instanceof Array && function(t2, r1) {
+            t2.__proto__ = r1;
+        } || function(t2, r1) {
+            for(var e1 in r1)Object.prototype.hasOwnProperty.call(r1, e1) && (t2[e1] = r1[e1]);
+        })(t1, e);
+    };
+    function e(t1, e1) {
+        if ("function" != typeof e1 && null !== e1) throw new TypeError("Class extends value " + String(e1) + " is not a constructor or null");
+        function a() {
+            this.constructor = t1;
+        }
+        r(t1, e1), t1.prototype = null === e1 ? Object.create(e1) : (a.prototype = e1.prototype, new a);
+    }
+    var a = " ";
+    function i2(t1) {
+        var r1 = "";
+        Array.isArray(t1) || (t1 = [
+            t1
+        ]);
+        for(var e1 = 0; e1 < t1.length; e1++){
+            var i1 = t1[e1];
+            if (i1.type === N.CLOSE_PATH) r1 += "z";
+            else if (i1.type === N.HORIZ_LINE_TO) r1 += (i1.relative ? "h" : "H") + i1.x;
+            else if (i1.type === N.VERT_LINE_TO) r1 += (i1.relative ? "v" : "V") + i1.y;
+            else if (i1.type === N.MOVE_TO) r1 += (i1.relative ? "m" : "M") + i1.x + a + i1.y;
+            else if (i1.type === N.LINE_TO) r1 += (i1.relative ? "l" : "L") + i1.x + a + i1.y;
+            else if (i1.type === N.CURVE_TO) r1 += (i1.relative ? "c" : "C") + i1.x1 + a + i1.y1 + a + i1.x2 + a + i1.y2 + a + i1.x + a + i1.y;
+            else if (i1.type === N.SMOOTH_CURVE_TO) r1 += (i1.relative ? "s" : "S") + i1.x2 + a + i1.y2 + a + i1.x + a + i1.y;
+            else if (i1.type === N.QUAD_TO) r1 += (i1.relative ? "q" : "Q") + i1.x1 + a + i1.y1 + a + i1.x + a + i1.y;
+            else if (i1.type === N.SMOOTH_QUAD_TO) r1 += (i1.relative ? "t" : "T") + i1.x + a + i1.y;
+            else {
+                if (i1.type !== N.ARC) throw new Error('Unexpected command type "' + i1.type + '" at index ' + e1 + ".");
+                r1 += (i1.relative ? "a" : "A") + i1.rX + a + i1.rY + a + i1.xRot + a + +i1.lArcFlag + a + +i1.sweepFlag + a + i1.x + a + i1.y;
+            }
+        }
+        return r1;
+    }
+    function n(t1, r1) {
+        var e1 = t1[0], a1 = t1[1];
+        return [
+            e1 * Math.cos(r1) - a1 * Math.sin(r1),
+            e1 * Math.sin(r1) + a1 * Math.cos(r1)
+        ];
+    }
+    function o() {
+        for(var t1 = [], r1 = 0; r1 < arguments.length; r1++)t1[r1] = arguments[r1];
+        for(var e1 = 0; e1 < t1.length; e1++)if ("number" != typeof t1[e1]) throw new Error("assertNumbers arguments[" + e1 + "] is not a number. " + typeof t1[e1] + " == typeof " + t1[e1]);
+        return !0;
+    }
+    var s = Math.PI;
+    function u(t1, r1, e1) {
+        t1.lArcFlag = 0 === t1.lArcFlag ? 0 : 1, t1.sweepFlag = 0 === t1.sweepFlag ? 0 : 1;
+        var a1 = t1.rX, i2 = t1.rY, o1 = t1.x, u1 = t1.y;
+        a1 = Math.abs(t1.rX), i2 = Math.abs(t1.rY);
+        var h = n([
+            (r1 - o1) / 2,
+            (e1 - u1) / 2
+        ], -t1.xRot / 180 * s), c = h[0], m = h[1], y = Math.pow(c, 2) / Math.pow(a1, 2) + Math.pow(m, 2) / Math.pow(i2, 2);
+        1 < y && (a1 *= Math.sqrt(y), i2 *= Math.sqrt(y)), t1.rX = a1, t1.rY = i2;
+        var p = Math.pow(a1, 2) * Math.pow(m, 2) + Math.pow(i2, 2) * Math.pow(c, 2), f = (t1.lArcFlag !== t1.sweepFlag ? 1 : -1) * Math.sqrt(Math.max(0, (Math.pow(a1, 2) * Math.pow(i2, 2) - p) / p)), T = a1 * m / i2 * f, O = -i2 * c / a1 * f, l = n([
+            T,
+            O
+        ], t1.xRot / 180 * s);
+        t1.cX = l[0] + (r1 + o1) / 2, t1.cY = l[1] + (e1 + u1) / 2, t1.phi1 = Math.atan2((m - O) / i2, (c - T) / a1), t1.phi2 = Math.atan2((-m - O) / i2, (-c - T) / a1), 0 === t1.sweepFlag && t1.phi2 > t1.phi1 && (t1.phi2 -= 2 * s), 1 === t1.sweepFlag && t1.phi2 < t1.phi1 && (t1.phi2 += 2 * s), t1.phi1 *= 180 / s, t1.phi2 *= 180 / s;
+    }
+    function h(t1, r1, e1) {
+        o(t1, r1, e1);
+        var a1 = t1 * t1 + r1 * r1 - e1 * e1;
+        if (0 > a1) return [];
+        if (0 === a1) return [
+            [
+                t1 * e1 / (t1 * t1 + r1 * r1),
+                r1 * e1 / (t1 * t1 + r1 * r1)
+            ]
+        ];
+        var i2 = Math.sqrt(a1);
+        return [
+            [
+                (t1 * e1 + r1 * i2) / (t1 * t1 + r1 * r1),
+                (r1 * e1 - t1 * i2) / (t1 * t1 + r1 * r1)
+            ],
+            [
+                (t1 * e1 - r1 * i2) / (t1 * t1 + r1 * r1),
+                (r1 * e1 + t1 * i2) / (t1 * t1 + r1 * r1)
+            ]
+        ];
+    }
+    var c = Math.PI / 180;
+    function m(t1, r1, e1) {
+        return (1 - e1) * t1 + e1 * r1;
+    }
+    function y(t1, r1, e1, a1) {
+        return t1 + Math.cos(a1 / 180 * s) * r1 + Math.sin(a1 / 180 * s) * e1;
+    }
+    function p(t1, r1, e1, a1) {
+        var i2 = 0.000001, n1 = r1 - t1, o1 = e1 - r1, s1 = 3 * n1 + 3 * (a1 - e1) - 6 * o1, u1 = 6 * (o1 - n1), h1 = 3 * n1;
+        return Math.abs(s1) < i2 ? [
+            -h1 / u1
+        ] : (function(t2, r2, e2) {
+            (void 0) === e2 && (e2 = 0.000001);
+            var a2 = t2 * t2 / 4 - r2;
+            if (a2 < -e2) return [];
+            if (a2 <= e2) return [
+                -t2 / 2
+            ];
+            var i3 = Math.sqrt(a2);
+            return [
+                -t2 / 2 - i3,
+                -t2 / 2 + i3
+            ];
+        })(u1 / s1, h1 / s1, i2);
+    }
+    function f(t1, r1, e1, a1, i2) {
+        var n1 = 1 - i2;
+        return t1 * (n1 * n1 * n1) + r1 * (3 * n1 * n1 * i2) + e1 * (3 * n1 * i2 * i2) + a1 * (i2 * i2 * i2);
+    }
+    t.SVGPathDataTransformer = void 0, (function(t1) {
+        function r1() {
+            return i3(function(t2, r2, e1) {
+                return t2.relative && ((void 0) !== t2.x1 && (t2.x1 += r2), (void 0) !== t2.y1 && (t2.y1 += e1), (void 0) !== t2.x2 && (t2.x2 += r2), (void 0) !== t2.y2 && (t2.y2 += e1), (void 0) !== t2.x && (t2.x += r2), (void 0) !== t2.y && (t2.y += e1), t2.relative = !1), t2;
+            });
+        }
+        function e1() {
+            var t2 = NaN, r2 = NaN, e2 = NaN, a1 = NaN;
+            return i3(function(i3, n1, o1) {
+                return i3.type & N.SMOOTH_CURVE_TO && (i3.type = N.CURVE_TO, t2 = isNaN(t2) ? n1 : t2, r2 = isNaN(r2) ? o1 : r2, i3.x1 = i3.relative ? n1 - t2 : 2 * n1 - t2, i3.y1 = i3.relative ? o1 - r2 : 2 * o1 - r2), i3.type & N.CURVE_TO ? (t2 = i3.relative ? n1 + i3.x2 : i3.x2, r2 = i3.relative ? o1 + i3.y2 : i3.y2) : (t2 = NaN, r2 = NaN), i3.type & N.SMOOTH_QUAD_TO && (i3.type = N.QUAD_TO, e2 = isNaN(e2) ? n1 : e2, a1 = isNaN(a1) ? o1 : a1, i3.x1 = i3.relative ? n1 - e2 : 2 * n1 - e2, i3.y1 = i3.relative ? o1 - a1 : 2 * o1 - a1), i3.type & N.QUAD_TO ? (e2 = i3.relative ? n1 + i3.x1 : i3.x1, a1 = i3.relative ? o1 + i3.y1 : i3.y1) : (e2 = NaN, a1 = NaN), i3;
+            });
+        }
+        function a1() {
+            var t2 = NaN, r2 = NaN;
+            return i3(function(e2, a2, i3) {
+                if (e2.type & N.SMOOTH_QUAD_TO && (e2.type = N.QUAD_TO, t2 = isNaN(t2) ? a2 : t2, r2 = isNaN(r2) ? i3 : r2, e2.x1 = e2.relative ? a2 - t2 : 2 * a2 - t2, e2.y1 = e2.relative ? i3 - r2 : 2 * i3 - r2), e2.type & N.QUAD_TO) {
+                    t2 = e2.relative ? a2 + e2.x1 : e2.x1, r2 = e2.relative ? i3 + e2.y1 : e2.y1;
+                    var n1 = e2.x1, o1 = e2.y1;
+                    e2.type = N.CURVE_TO, e2.x1 = ((e2.relative ? 0 : a2) + 2 * n1) / 3, e2.y1 = ((e2.relative ? 0 : i3) + 2 * o1) / 3, e2.x2 = (e2.x + 2 * n1) / 3, e2.y2 = (e2.y + 2 * o1) / 3;
+                } else t2 = NaN, r2 = NaN;
+                return e2;
+            });
+        }
+        function i3(t2) {
+            var r2 = 0, e2 = 0, a2 = NaN, i4 = NaN;
+            return function(n2) {
+                if (isNaN(a2) && !(n2.type & N.MOVE_TO)) throw new Error("path must start with moveto");
+                var o2 = t2(n2, r2, e2, a2, i4);
+                return n2.type & N.CLOSE_PATH && (r2 = a2, e2 = i4), (void 0) !== n2.x && (r2 = n2.relative ? r2 + n2.x : n2.x), (void 0) !== n2.y && (e2 = n2.relative ? e2 + n2.y : n2.y), n2.type & N.MOVE_TO && (a2 = r2, i4 = e2), o2;
+            };
+        }
+        function s1(t2, r2, e2, a2, n2, s2) {
+            return o(t2, r2, e2, a2, n2, s2), i3(function(i4, o2, u1, h1) {
+                var c1 = i4.x1, m1 = i4.x2, y1 = i4.relative && !isNaN(h1), p1 = (void 0) !== i4.x ? i4.x : y1 ? 0 : o2, f1 = (void 0) !== i4.y ? i4.y : y1 ? 0 : u1;
+                function T(t3) {
+                    return t3 * t3;
+                }
+                i4.type & N.HORIZ_LINE_TO && 0 !== r2 && (i4.type = N.LINE_TO, i4.y = i4.relative ? 0 : u1), i4.type & N.VERT_LINE_TO && 0 !== e2 && (i4.type = N.LINE_TO, i4.x = i4.relative ? 0 : o2), (void 0) !== i4.x && (i4.x = i4.x * t2 + f1 * e2 + (y1 ? 0 : n2)), (void 0) !== i4.y && (i4.y = p1 * r2 + i4.y * a2 + (y1 ? 0 : s2)), (void 0) !== i4.x1 && (i4.x1 = i4.x1 * t2 + i4.y1 * e2 + (y1 ? 0 : n2)), (void 0) !== i4.y1 && (i4.y1 = c1 * r2 + i4.y1 * a2 + (y1 ? 0 : s2)), (void 0) !== i4.x2 && (i4.x2 = i4.x2 * t2 + i4.y2 * e2 + (y1 ? 0 : n2)), (void 0) !== i4.y2 && (i4.y2 = m1 * r2 + i4.y2 * a2 + (y1 ? 0 : s2));
+                var O = t2 * a2 - r2 * e2;
+                if ((void 0) !== i4.xRot && (1 !== t2 || 0 !== r2 || 0 !== e2 || 1 !== a2)) {
+                    if (0 === O) delete i4.rX, delete i4.rY, delete i4.xRot, delete i4.lArcFlag, delete i4.sweepFlag, i4.type = N.LINE_TO;
+                    else {
+                        var l = i4.xRot * Math.PI / 180, v = Math.sin(l), _ = Math.cos(l), d = 1 / T(i4.rX), x = 1 / T(i4.rY), A = T(_) * d + T(v) * x, E = 2 * v * _ * (d - x), C = T(v) * d + T(_) * x, M = A * a2 * a2 - E * r2 * a2 + C * r2 * r2, R = E * (t2 * a2 + r2 * e2) - 2 * (A * e2 * a2 + C * t2 * r2), S = A * e2 * e2 - E * t2 * e2 + C * t2 * t2, g = (Math.atan2(R, M - S) + Math.PI) % Math.PI / 2, I = Math.sin(g), V = Math.cos(g);
+                        i4.rX = Math.abs(O) / Math.sqrt(M * T(V) + R * I * V + S * T(I)), i4.rY = Math.abs(O) / Math.sqrt(M * T(I) - R * I * V + S * T(V)), i4.xRot = 180 * g / Math.PI;
+                    }
+                }
+                return (void 0) !== i4.sweepFlag && 0 > O && (i4.sweepFlag = +!i4.sweepFlag), i4;
+            });
+        }
+        function T() {
+            return function(t2) {
+                var r2 = {
+                };
+                for(var e2 in t2)r2[e2] = t2[e2];
+                return r2;
+            };
+        }
+        t1.ROUND = function(t2) {
+            function r2(r3) {
+                return Math.round(r3 * t2) / t2;
+            }
+            return (void 0) === t2 && (t2 = 10000000000000), o(t2), function(t3) {
+                return (void 0) !== t3.x1 && (t3.x1 = r2(t3.x1)), (void 0) !== t3.y1 && (t3.y1 = r2(t3.y1)), (void 0) !== t3.x2 && (t3.x2 = r2(t3.x2)), (void 0) !== t3.y2 && (t3.y2 = r2(t3.y2)), (void 0) !== t3.x && (t3.x = r2(t3.x)), (void 0) !== t3.y && (t3.y = r2(t3.y)), (void 0) !== t3.rX && (t3.rX = r2(t3.rX)), (void 0) !== t3.rY && (t3.rY = r2(t3.rY)), t3;
+            };
+        }, t1.TO_ABS = r1, t1.TO_REL = function() {
+            return i3(function(t2, r2, e2) {
+                return t2.relative || ((void 0) !== t2.x1 && (t2.x1 -= r2), (void 0) !== t2.y1 && (t2.y1 -= e2), (void 0) !== t2.x2 && (t2.x2 -= r2), (void 0) !== t2.y2 && (t2.y2 -= e2), (void 0) !== t2.x && (t2.x -= r2), (void 0) !== t2.y && (t2.y -= e2), t2.relative = !0), t2;
+            });
+        }, t1.NORMALIZE_HVZ = function(t2, r2, e2) {
+            return (void 0) === t2 && (t2 = !0), (void 0) === r2 && (r2 = !0), (void 0) === e2 && (e2 = !0), i3(function(a2, i4, n2, o2, s2) {
+                if (isNaN(o2) && !(a2.type & N.MOVE_TO)) throw new Error("path must start with moveto");
+                return r2 && a2.type & N.HORIZ_LINE_TO && (a2.type = N.LINE_TO, a2.y = a2.relative ? 0 : n2), e2 && a2.type & N.VERT_LINE_TO && (a2.type = N.LINE_TO, a2.x = a2.relative ? 0 : i4), t2 && a2.type & N.CLOSE_PATH && (a2.type = N.LINE_TO, a2.x = a2.relative ? o2 - i4 : o2, a2.y = a2.relative ? s2 - n2 : s2), a2.type & N.ARC && (0 === a2.rX || 0 === a2.rY) && (a2.type = N.LINE_TO, delete a2.rX, delete a2.rY, delete a2.xRot, delete a2.lArcFlag, delete a2.sweepFlag), a2;
+            });
+        }, t1.NORMALIZE_ST = e1, t1.QT_TO_C = a1, t1.INFO = i3, t1.SANITIZE = function(t2) {
+            (void 0) === t2 && (t2 = 0), o(t2);
+            var r2 = NaN, e2 = NaN, a2 = NaN, n2 = NaN;
+            return i3(function(i4, o2, s2, u1, h1) {
+                var c1 = Math.abs, m1 = !1, y1 = 0, p1 = 0;
+                if (i4.type & N.SMOOTH_CURVE_TO && (y1 = isNaN(r2) ? 0 : o2 - r2, p1 = isNaN(e2) ? 0 : s2 - e2), i4.type & (N.CURVE_TO | N.SMOOTH_CURVE_TO) ? (r2 = i4.relative ? o2 + i4.x2 : i4.x2, e2 = i4.relative ? s2 + i4.y2 : i4.y2) : (r2 = NaN, e2 = NaN), i4.type & N.SMOOTH_QUAD_TO ? (a2 = isNaN(a2) ? o2 : 2 * o2 - a2, n2 = isNaN(n2) ? s2 : 2 * s2 - n2) : i4.type & N.QUAD_TO ? (a2 = i4.relative ? o2 + i4.x1 : i4.x1, n2 = i4.relative ? s2 + i4.y1 : i4.y2) : (a2 = NaN, n2 = NaN), i4.type & N.LINE_COMMANDS || i4.type & N.ARC && (0 === i4.rX || 0 === i4.rY || !i4.lArcFlag) || i4.type & N.CURVE_TO || i4.type & N.SMOOTH_CURVE_TO || i4.type & N.QUAD_TO || i4.type & N.SMOOTH_QUAD_TO) {
+                    var f1 = (void 0) === i4.x ? 0 : i4.relative ? i4.x : i4.x - o2, T1 = (void 0) === i4.y ? 0 : i4.relative ? i4.y : i4.y - s2;
+                    y1 = isNaN(a2) ? (void 0) === i4.x1 ? y1 : i4.relative ? i4.x : i4.x1 - o2 : a2 - o2, p1 = isNaN(n2) ? (void 0) === i4.y1 ? p1 : i4.relative ? i4.y : i4.y1 - s2 : n2 - s2;
+                    var O = (void 0) === i4.x2 ? 0 : i4.relative ? i4.x : i4.x2 - o2, l = (void 0) === i4.y2 ? 0 : i4.relative ? i4.y : i4.y2 - s2;
+                    c1(f1) <= t2 && c1(T1) <= t2 && c1(y1) <= t2 && c1(p1) <= t2 && c1(O) <= t2 && c1(l) <= t2 && (m1 = !0);
+                }
+                return i4.type & N.CLOSE_PATH && c1(o2 - u1) <= t2 && c1(s2 - h1) <= t2 && (m1 = !0), m1 ? [] : i4;
+            });
+        }, t1.MATRIX = s1, t1.ROTATE = function(t2, r2, e2) {
+            (void 0) === r2 && (r2 = 0), (void 0) === e2 && (e2 = 0), o(t2, r2, e2);
+            var a2 = Math.sin(t2), i4 = Math.cos(t2);
+            return s1(i4, a2, -a2, i4, r2 - r2 * i4 + e2 * a2, e2 - r2 * a2 - e2 * i4);
+        }, t1.TRANSLATE = function(t2, r2) {
+            return (void 0) === r2 && (r2 = 0), o(t2, r2), s1(1, 0, 0, 1, t2, r2);
+        }, t1.SCALE = function(t2, r2) {
+            return (void 0) === r2 && (r2 = t2), o(t2, r2), s1(t2, 0, 0, r2, 0, 0);
+        }, t1.SKEW_X = function(t2) {
+            return o(t2), s1(1, 0, Math.atan(t2), 1, 0, 0);
+        }, t1.SKEW_Y = function(t2) {
+            return o(t2), s1(1, Math.atan(t2), 0, 1, 0, 0);
+        }, t1.X_AXIS_SYMMETRY = function(t2) {
+            return (void 0) === t2 && (t2 = 0), o(t2), s1(-1, 0, 0, 1, t2, 0);
+        }, t1.Y_AXIS_SYMMETRY = function(t2) {
+            return (void 0) === t2 && (t2 = 0), o(t2), s1(1, 0, 0, -1, 0, t2);
+        }, t1.A_TO_C = function() {
+            return i3(function(t2, r2, e2) {
+                return N.ARC === t2.type ? (function(t3, r3, e3) {
+                    var a2, i4, o2, s2;
+                    t3.cX || u(t3, r3, e3);
+                    for(var h1 = Math.min(t3.phi1, t3.phi2), y1 = Math.max(t3.phi1, t3.phi2) - h1, p1 = Math.ceil(y1 / 90), f2 = new Array(p1), T2 = r3, O = e3, l = 0; l < p1; l++){
+                        var v = m(t3.phi1, t3.phi2, l / p1), _ = m(t3.phi1, t3.phi2, (l + 1) / p1), d = _ - v, x = 4 / 3 * Math.tan(d * c / 4), A = [
+                            Math.cos(v * c) - x * Math.sin(v * c),
+                            Math.sin(v * c) + x * Math.cos(v * c)
+                        ], E = A[0], C = A[1], M = [
+                            Math.cos(_ * c),
+                            Math.sin(_ * c)
+                        ], R = M[0], S = M[1], g = [
+                            R + x * Math.sin(_ * c),
+                            S - x * Math.cos(_ * c)
+                        ], I = g[0], V = g[1];
+                        f2[l] = {
+                            relative: t3.relative,
+                            type: N.CURVE_TO
+                        };
+                        var D = function(r4, e4) {
+                            var a3 = n([
+                                r4 * t3.rX,
+                                e4 * t3.rY
+                            ], t3.xRot), i5 = a3[0], o3 = a3[1];
+                            return [
+                                t3.cX + i5,
+                                t3.cY + o3
+                            ];
+                        };
+                        a2 = D(E, C), f2[l].x1 = a2[0], f2[l].y1 = a2[1], i4 = D(I, V), f2[l].x2 = i4[0], f2[l].y2 = i4[1], o2 = D(R, S), f2[l].x = o2[0], f2[l].y = o2[1], t3.relative && (f2[l].x1 -= T2, f2[l].y1 -= O, f2[l].x2 -= T2, f2[l].y2 -= O, f2[l].x -= T2, f2[l].y -= O), T2 = (s2 = [
+                            f2[l].x,
+                            f2[l].y
+                        ])[0], O = s2[1];
+                    }
+                    return f2;
+                })(t2, t2.relative ? 0 : r2, t2.relative ? 0 : e2) : t2;
+            });
+        }, t1.ANNOTATE_ARCS = function() {
+            return i3(function(t2, r2, e2) {
+                return t2.relative && (r2 = 0, e2 = 0), N.ARC === t2.type && u(t2, r2, e2), t2;
+            });
+        }, t1.CLONE = T, t1.CALCULATE_BOUNDS = function() {
+            var t2 = function(t3) {
+                var r2 = {
+                };
+                for(var e2 in t3)r2[e2] = t3[e2];
+                return r2;
+            }, n2 = r1(), o2 = a1(), s2 = e1(), c1 = i3(function(r2, e2, a2) {
+                var i4 = s2(o2(n2(t2(r2))));
+                function m1(t3) {
+                    t3 > c1.maxX && (c1.maxX = t3), t3 < c1.minX && (c1.minX = t3);
+                }
+                function T2(t3) {
+                    t3 > c1.maxY && (c1.maxY = t3), t3 < c1.minY && (c1.minY = t3);
+                }
+                if (i4.type & N.DRAWING_COMMANDS && (m1(e2), T2(a2)), i4.type & N.HORIZ_LINE_TO && m1(i4.x), i4.type & N.VERT_LINE_TO && T2(i4.y), i4.type & N.LINE_TO && (m1(i4.x), T2(i4.y)), i4.type & N.CURVE_TO) {
+                    m1(i4.x), T2(i4.y);
+                    for(var O = 0, l = p(e2, i4.x1, i4.x2, i4.x); O < l.length; O++)0 < (H = l[O]) && 1 > H && m1(f(e2, i4.x1, i4.x2, i4.x, H));
+                    for(var v = 0, _ = p(a2, i4.y1, i4.y2, i4.y); v < _.length; v++)0 < (H = _[v]) && 1 > H && T2(f(a2, i4.y1, i4.y2, i4.y, H));
+                }
+                if (i4.type & N.ARC) {
+                    m1(i4.x), T2(i4.y), u(i4, e2, a2);
+                    for(var d = i4.xRot / 180 * Math.PI, x = Math.cos(d) * i4.rX, A = Math.sin(d) * i4.rX, E = -Math.sin(d) * i4.rY, C = Math.cos(d) * i4.rY, M = i4.phi1 < i4.phi2 ? [
+                        i4.phi1,
+                        i4.phi2
+                    ] : -180 > i4.phi2 ? [
+                        i4.phi2 + 360,
+                        i4.phi1 + 360
+                    ] : [
+                        i4.phi2,
+                        i4.phi1
+                    ], R = M[0], S = M[1], g = function(t3) {
+                        var r3 = t3[0], e3 = t3[1], a3 = 180 * Math.atan2(e3, r3) / Math.PI;
+                        return a3 < R ? a3 + 360 : a3;
+                    }, I = 0, V = h(E, -x, 0).map(g); I < V.length; I++)(H = V[I]) > R && H < S && m1(y(i4.cX, x, E, H));
+                    for(var D = 0, L = h(C, -A, 0).map(g); D < L.length; D++){
+                        var H;
+                        (H = L[D]) > R && H < S && T2(y(i4.cY, A, C, H));
+                    }
+                }
+                return r2;
+            });
+            return c1.minX = 1 / 0, c1.maxX = -1 / 0, c1.minY = 1 / 0, c1.maxY = -1 / 0, c1;
+        };
+    })(t.SVGPathDataTransformer || (t.SVGPathDataTransformer = {
+    }));
+    var T2, O = function() {
+        function r1() {
+        }
+        return r1.prototype.round = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.ROUND(r2));
+        }, r1.prototype.toAbs = function() {
+            return this.transform(t.SVGPathDataTransformer.TO_ABS());
+        }, r1.prototype.toRel = function() {
+            return this.transform(t.SVGPathDataTransformer.TO_REL());
+        }, r1.prototype.normalizeHVZ = function(r2, e1, a1) {
+            return this.transform(t.SVGPathDataTransformer.NORMALIZE_HVZ(r2, e1, a1));
+        }, r1.prototype.normalizeST = function() {
+            return this.transform(t.SVGPathDataTransformer.NORMALIZE_ST());
+        }, r1.prototype.qtToC = function() {
+            return this.transform(t.SVGPathDataTransformer.QT_TO_C());
+        }, r1.prototype.aToC = function() {
+            return this.transform(t.SVGPathDataTransformer.A_TO_C());
+        }, r1.prototype.sanitize = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.SANITIZE(r2));
+        }, r1.prototype.translate = function(r2, e1) {
+            return this.transform(t.SVGPathDataTransformer.TRANSLATE(r2, e1));
+        }, r1.prototype.scale = function(r2, e1) {
+            return this.transform(t.SVGPathDataTransformer.SCALE(r2, e1));
+        }, r1.prototype.rotate = function(r2, e1, a1) {
+            return this.transform(t.SVGPathDataTransformer.ROTATE(r2, e1, a1));
+        }, r1.prototype.matrix = function(r2, e1, a1, i3, n2, o2) {
+            return this.transform(t.SVGPathDataTransformer.MATRIX(r2, e1, a1, i3, n2, o2));
+        }, r1.prototype.skewX = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.SKEW_X(r2));
+        }, r1.prototype.skewY = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.SKEW_Y(r2));
+        }, r1.prototype.xSymmetry = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.X_AXIS_SYMMETRY(r2));
+        }, r1.prototype.ySymmetry = function(r2) {
+            return this.transform(t.SVGPathDataTransformer.Y_AXIS_SYMMETRY(r2));
+        }, r1.prototype.annotateArcs = function() {
+            return this.transform(t.SVGPathDataTransformer.ANNOTATE_ARCS());
+        }, r1;
+    }(), l = function(t1) {
+        return " " === t1 || "\t" === t1 || "\r" === t1 || "\n" === t1;
+    }, v = function(t1) {
+        return "0".charCodeAt(0) <= t1.charCodeAt(0) && t1.charCodeAt(0) <= "9".charCodeAt(0);
+    }, _ = function(t1) {
+        function r1() {
+            var r2 = t1.call(this) || this;
+            return r2.curNumber = "", r2.curCommandType = -1, r2.curCommandRelative = !1, r2.canParseCommandOrComma = !0, r2.curNumberHasExp = !1, r2.curNumberHasExpDigits = !1, r2.curNumberHasDecimal = !1, r2.curArgs = [], r2;
+        }
+        return e(r1, t1), r1.prototype.finish = function(t2) {
+            if ((void 0) === t2 && (t2 = []), this.parse(" ", t2), 0 !== this.curArgs.length || !this.canParseCommandOrComma) throw new SyntaxError("Unterminated command at the path end.");
+            return t2;
+        }, r1.prototype.parse = function(t2, r2) {
+            var e1 = this;
+            (void 0) === r2 && (r2 = []);
+            for(var a1 = function(t3) {
+                r2.push(t3), e1.curArgs.length = 0, e1.canParseCommandOrComma = !0;
+            }, i3 = 0; i3 < t2.length; i3++){
+                var n2 = t2[i3], o2 = !(this.curCommandType !== N.ARC || 3 !== this.curArgs.length && 4 !== this.curArgs.length || 1 !== this.curNumber.length || "0" !== this.curNumber && "1" !== this.curNumber), s1 = v(n2) && ("0" === this.curNumber && "0" === n2 || o2);
+                if (!v(n2) || s1) {
+                    if ("e" !== n2 && "E" !== n2) {
+                        if ("-" !== n2 && "+" !== n2 || !this.curNumberHasExp || this.curNumberHasExpDigits) {
+                            if ("." !== n2 || this.curNumberHasExp || this.curNumberHasDecimal || o2) {
+                                if (this.curNumber && -1 !== this.curCommandType) {
+                                    var u1 = Number(this.curNumber);
+                                    if (isNaN(u1)) throw new SyntaxError("Invalid number ending at " + i3);
+                                    if (this.curCommandType === N.ARC) {
+                                        if (0 === this.curArgs.length || 1 === this.curArgs.length) {
+                                            if (0 > u1) throw new SyntaxError('Expected positive number, got "' + u1 + '" at index "' + i3 + '"');
+                                        } else if ((3 === this.curArgs.length || 4 === this.curArgs.length) && "0" !== this.curNumber && "1" !== this.curNumber) throw new SyntaxError('Expected a flag, got "' + this.curNumber + '" at index "' + i3 + '"');
+                                    }
+                                    this.curArgs.push(u1), this.curArgs.length === d[this.curCommandType] && (N.HORIZ_LINE_TO === this.curCommandType ? a1({
+                                        type: N.HORIZ_LINE_TO,
+                                        relative: this.curCommandRelative,
+                                        x: u1
+                                    }) : N.VERT_LINE_TO === this.curCommandType ? a1({
+                                        type: N.VERT_LINE_TO,
+                                        relative: this.curCommandRelative,
+                                        y: u1
+                                    }) : this.curCommandType === N.MOVE_TO || this.curCommandType === N.LINE_TO || this.curCommandType === N.SMOOTH_QUAD_TO ? (a1({
+                                        type: this.curCommandType,
+                                        relative: this.curCommandRelative,
+                                        x: this.curArgs[0],
+                                        y: this.curArgs[1]
+                                    }), N.MOVE_TO === this.curCommandType && (this.curCommandType = N.LINE_TO)) : this.curCommandType === N.CURVE_TO ? a1({
+                                        type: N.CURVE_TO,
+                                        relative: this.curCommandRelative,
+                                        x1: this.curArgs[0],
+                                        y1: this.curArgs[1],
+                                        x2: this.curArgs[2],
+                                        y2: this.curArgs[3],
+                                        x: this.curArgs[4],
+                                        y: this.curArgs[5]
+                                    }) : this.curCommandType === N.SMOOTH_CURVE_TO ? a1({
+                                        type: N.SMOOTH_CURVE_TO,
+                                        relative: this.curCommandRelative,
+                                        x2: this.curArgs[0],
+                                        y2: this.curArgs[1],
+                                        x: this.curArgs[2],
+                                        y: this.curArgs[3]
+                                    }) : this.curCommandType === N.QUAD_TO ? a1({
+                                        type: N.QUAD_TO,
+                                        relative: this.curCommandRelative,
+                                        x1: this.curArgs[0],
+                                        y1: this.curArgs[1],
+                                        x: this.curArgs[2],
+                                        y: this.curArgs[3]
+                                    }) : this.curCommandType === N.ARC && a1({
+                                        type: N.ARC,
+                                        relative: this.curCommandRelative,
+                                        rX: this.curArgs[0],
+                                        rY: this.curArgs[1],
+                                        xRot: this.curArgs[2],
+                                        lArcFlag: this.curArgs[3],
+                                        sweepFlag: this.curArgs[4],
+                                        x: this.curArgs[5],
+                                        y: this.curArgs[6]
+                                    })), this.curNumber = "", this.curNumberHasExpDigits = !1, this.curNumberHasExp = !1, this.curNumberHasDecimal = !1, this.canParseCommandOrComma = !0;
+                                }
+                                if (!l(n2)) {
+                                    if ("," === n2 && this.canParseCommandOrComma) this.canParseCommandOrComma = !1;
+                                    else if ("+" !== n2 && "-" !== n2 && "." !== n2) {
+                                        if (s1) this.curNumber = n2, this.curNumberHasDecimal = !1;
+                                        else {
+                                            if (0 !== this.curArgs.length) throw new SyntaxError("Unterminated command at index " + i3 + ".");
+                                            if (!this.canParseCommandOrComma) throw new SyntaxError('Unexpected character "' + n2 + '" at index ' + i3 + ". Command cannot follow comma");
+                                            if (this.canParseCommandOrComma = !1, "z" !== n2 && "Z" !== n2) {
+                                                if ("h" === n2 || "H" === n2) this.curCommandType = N.HORIZ_LINE_TO, this.curCommandRelative = "h" === n2;
+                                                else if ("v" === n2 || "V" === n2) this.curCommandType = N.VERT_LINE_TO, this.curCommandRelative = "v" === n2;
+                                                else if ("m" === n2 || "M" === n2) this.curCommandType = N.MOVE_TO, this.curCommandRelative = "m" === n2;
+                                                else if ("l" === n2 || "L" === n2) this.curCommandType = N.LINE_TO, this.curCommandRelative = "l" === n2;
+                                                else if ("c" === n2 || "C" === n2) this.curCommandType = N.CURVE_TO, this.curCommandRelative = "c" === n2;
+                                                else if ("s" === n2 || "S" === n2) this.curCommandType = N.SMOOTH_CURVE_TO, this.curCommandRelative = "s" === n2;
+                                                else if ("q" === n2 || "Q" === n2) this.curCommandType = N.QUAD_TO, this.curCommandRelative = "q" === n2;
+                                                else if ("t" === n2 || "T" === n2) this.curCommandType = N.SMOOTH_QUAD_TO, this.curCommandRelative = "t" === n2;
+                                                else {
+                                                    if ("a" !== n2 && "A" !== n2) throw new SyntaxError('Unexpected character "' + n2 + '" at index ' + i3 + ".");
+                                                    this.curCommandType = N.ARC, this.curCommandRelative = "a" === n2;
+                                                }
+                                            } else r2.push({
+                                                type: N.CLOSE_PATH
+                                            }), this.canParseCommandOrComma = !0, this.curCommandType = -1;
+                                        }
+                                    } else this.curNumber = n2, this.curNumberHasDecimal = "." === n2;
+                                }
+                            } else this.curNumber += n2, this.curNumberHasDecimal = !0;
+                        } else this.curNumber += n2;
+                    } else this.curNumber += n2, this.curNumberHasExp = !0;
+                } else this.curNumber += n2, this.curNumberHasExpDigits = this.curNumberHasExp;
+            }
+            return r2;
+        }, r1.prototype.transform = function(t2) {
+            return Object.create(this, {
+                parse: {
+                    value: function(r2, e1) {
+                        (void 0) === e1 && (e1 = []);
+                        for(var a1 = 0, i3 = Object.getPrototypeOf(this).parse.call(this, r2); a1 < i3.length; a1++){
+                            var n3 = i3[a1], o3 = t2(n3);
+                            Array.isArray(o3) ? e1.push.apply(e1, o3) : e1.push(o3);
+                        }
+                        return e1;
+                    }
+                }
+            });
+        }, r1;
+    }(O), N = function(r1) {
+        function a1(t1) {
+            var e1 = r1.call(this) || this;
+            return e1.commands = "string" == typeof t1 ? a1.parse(t1) : t1, e1;
+        }
+        return e(a1, r1), a1.prototype.encode = function() {
+            return a1.encode(this.commands);
+        }, a1.prototype.getBounds = function() {
+            var r2 = t.SVGPathDataTransformer.CALCULATE_BOUNDS();
+            return this.transform(r2), r2;
+        }, a1.prototype.transform = function(t1) {
+            for(var r2 = [], e1 = 0, a2 = this.commands; e1 < a2.length; e1++){
+                var i3 = t1(a2[e1]);
+                Array.isArray(i3) ? r2.push.apply(r2, i3) : r2.push(i3);
+            }
+            return this.commands = r2, this;
+        }, a1.encode = function(t1) {
+            return i2(t1);
+        }, a1.parse = function(t1) {
+            var r2 = new _, e1 = [];
+            return r2.parse(t1, e1), r2.finish(e1), e1;
+        }, a1.CLOSE_PATH = 1, a1.MOVE_TO = 2, a1.HORIZ_LINE_TO = 4, a1.VERT_LINE_TO = 8, a1.LINE_TO = 16, a1.CURVE_TO = 32, a1.SMOOTH_CURVE_TO = 64, a1.QUAD_TO = 128, a1.SMOOTH_QUAD_TO = 256, a1.ARC = 512, a1.LINE_COMMANDS = a1.LINE_TO | a1.HORIZ_LINE_TO | a1.VERT_LINE_TO, a1.DRAWING_COMMANDS = a1.HORIZ_LINE_TO | a1.VERT_LINE_TO | a1.LINE_TO | a1.CURVE_TO | a1.SMOOTH_CURVE_TO | a1.QUAD_TO | a1.SMOOTH_QUAD_TO | a1.ARC, a1;
+    }(O), d = ((T2 = {
+    })[N.MOVE_TO] = 2, T2[N.LINE_TO] = 2, T2[N.HORIZ_LINE_TO] = 1, T2[N.VERT_LINE_TO] = 1, T2[N.CLOSE_PATH] = 0, T2[N.QUAD_TO] = 4, T2[N.SMOOTH_QUAD_TO] = 2, T2[N.CURVE_TO] = 6, T2[N.SMOOTH_CURVE_TO] = 4, T2[N.ARC] = 7, T2);
+    t.COMMAND_ARG_COUNTS = d, t.SVGPathData = N, t.SVGPathDataParser = _, t.encodeSVGPath = i2, Object.defineProperty(t, "__esModule", {
+        value: !0
+    });
+}); //# sourceMappingURL=SVGPathData.cjs.map

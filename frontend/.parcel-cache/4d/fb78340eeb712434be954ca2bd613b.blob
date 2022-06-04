@@ -1,0 +1,149 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+function logout() {
+    _sweetalert2Default.default.fire({
+        title: "Logout!",
+        text: "Do you want to log out?",
+        icon: 'warning',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Yes',
+        denyButtonText: 'No',
+        customClass: {
+            actions: 'my-actions',
+            cancelButton: 'order-1 right-gap',
+            confirmButton: 'order-2',
+            denyButton: 'order-3'
+        }
+    }).then((result)=>{
+        if (result.isConfirmed) _sweetalert2Default.default.fire({
+            title: "Success!",
+            text: "Logout Success!",
+            icon: 'success',
+            confirmButtonText: "OK",
+            type: "success"
+        }).then((okay)=>{
+            if (okay) window.location.href = "/Login";
+        });
+        else if (result.isDenied) _sweetalert2Default.default.fire('Logout Canceled', '', 'info');
+    });
+}
+function AfterLogin() {
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("nav", {
+        class: "navbar navbar-expand-lg navbar-dark bg-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container-fluid",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 43
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("a", {
+        class: "navbar-brand h1 fw-bold",
+        style: {
+            fontSize: '30px'
+        },
+        href: "/",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        className: "text-warning text-uppercase",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    }, "RP"), "Manager"), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        class: "navbar-toggler",
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#navbarSupportedContent",
+        "aria-controls": "navbarSupportedContent",
+        "aria-expanded": "false",
+        "aria-label": "Toggle navigation",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 45
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        class: "navbar-toggler-icon",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "collapse navbar-collapse",
+        id: "navbarSupportedContent",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 48
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("ul", {
+        class: "navbar-nav me-auto mb-2 mb-lg-0",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 49
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("form", {
+        class: "d-flex",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 51
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        class: "btn btn-warning ",
+        type: "button",
+        onClick: logout,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    }, "Logout ", /*#__PURE__*/ _reactDefault.default.createElement("i", {
+        class: "bi bi-box-arrow-in-right",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\navbars\\afterLogin.jsx",
+            lineNumber: 52
+        },
+        __self: this
+    })), "\xa0\xa0"))))));
+}
+_c = AfterLogin;
+exports.default = AfterLogin;
+var _c;
+$RefreshReg$(_c, "AfterLogin");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

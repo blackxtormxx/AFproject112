@@ -1,0 +1,347 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function PanelStudentGroup() {
+    _s();
+    const username = _jsCookieDefault.default.get('user_name');
+    const [AllTeams, setAllTeams] = _react.useState([]);
+    const [panelData, setPanelData] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/staff/allTeamForPanel/" + _jsCookieDefault.default.get('user_name')).then((res)=>setPanelData(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    function updateTopic(id, topicStatus) {
+        alert(is);
+        const updateTopic1 = {
+            id,
+            topicStatus
+        };
+        _axiosDefault.default.put("http://localhost:5000/team/updateTopic", updateTopic1).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Topic " + topicStatus,
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Topic Not " + topicStatus,
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function PanelViewTeam(id) {
+        window.location.href = "/panel/PanelViewTeam?id=" + id;
+    }
+    function panelID(panelID1) {
+        _axiosDefault.default.get("http://localhost:5000/team/OneTeamFromPanelId/" + panelID1).then((res)=>setAllTeams(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 60
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 61
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 63
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 64
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 65
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 66
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 67
+        },
+        __self: this
+    }, "Group Management"), panelData.map((panel_Data)=>/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 71
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+            style: {
+                lineHeight: '0px'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 72
+            },
+            __self: this
+        }, "Your Panel Id Is : ", panel_Data.groupId), /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+            style: {
+                lineHeight: '0px'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 73
+            },
+            __self: this
+        }, panelID(panel_Data.groupId)))
+    ), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "text-end mt-5 mb-3",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 76
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        className: "btn-sm btn-outline-dark",
+        style: {
+            fontSize: '13px',
+            fontWeight: 'light'
+        },
+        onClick: ()=>window.location.href = "/panel/PanelDashboard"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 77
+        },
+        __self: this
+    }, "Back"))), /*#__PURE__*/ _reactDefault.default.createElement("table", {
+        class: "table",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 82
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("thead", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 83
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("tr", {
+        class: "bg-dark text-white",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 84
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 85
+        },
+        __self: this
+    }, "Group Id"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 86
+        },
+        __self: this
+    }, "Member One"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 87
+        },
+        __self: this
+    }, "Member Two"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 88
+        },
+        __self: this
+    }, "Member Three"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 89
+        },
+        __self: this
+    }, "Member Four"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 90
+        },
+        __self: this
+    }, "Research Area"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 91
+        },
+        __self: this
+    }, "Research Topic"), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+        class: "text-center",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 92
+        },
+        __self: this
+    }, "Action"))), /*#__PURE__*/ _reactDefault.default.createElement("tbody", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+            lineNumber: 95
+        },
+        __self: this
+    }, AllTeams.map((team)=>/*#__PURE__*/ _reactDefault.default.createElement("tr", {
+            class: "bg-white text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 97
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 98
+            },
+            __self: this
+        }, team.groupId), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 99
+            },
+            __self: this
+        }, team.mem_one_regNum), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 100
+            },
+            __self: this
+        }, team.mem_two_regNum), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 101
+            },
+            __self: this
+        }, team.mem_three_name), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 102
+            },
+            __self: this
+        }, team.mem_four_name), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 103
+            },
+            __self: this
+        }, team.researchCategory), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 104
+            },
+            __self: this
+        }, team.researchTopic), /*#__PURE__*/ _reactDefault.default.createElement("td", {
+            class: "text-center",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 105
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            style: {
+                display: team.topicStatus === 'Submitted' || team.topicStatus === 'Re-Submitted' ? 'inline' : 'none'
+            },
+            class: "btn btn-outline-success btn-sm",
+            onClick: ()=>updateTopic(team._id, 'Accept')
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, "Accept"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            style: {
+                display: team.topicStatus === 'Submitted' || team.topicStatus === 'Re-Submitted' ? 'inline' : 'none'
+            },
+            class: "btn btn-outline-danger btn-sm",
+            onClick: ()=>updateTopic(team._id, 'Reject')
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, "Reject"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-outline-danger btn-sm",
+            onClick: ()=>PanelViewTeam(team.groupId)
+            ,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_groups.jsx",
+                lineNumber: 108
+            },
+            __self: this
+        }, "View"), "\xa0\xa0"))
+    )))))))));
+}
+_s(PanelStudentGroup, "DuNZOsDeF0NIKZSyElt6vlmZeVo=");
+_c = PanelStudentGroup;
+exports.default = PanelStudentGroup;
+var _c;
+$RefreshReg$(_c, "PanelStudentGroup");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

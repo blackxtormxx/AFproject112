@@ -1,0 +1,665 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _homePageNav = require("../navbars/homePageNav");
+var _homePageNavDefault = parcelHelpers.interopDefault(_homePageNav);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _reactNumberFormat = require("react-number-format");
+var _reactNumberFormatDefault = parcelHelpers.interopDefault(_reactNumberFormat);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _ckeditor5React = require("@ckeditor/ckeditor5-react");
+var _ckeditor5BuildClassic = require("@ckeditor/ckeditor5-build-classic");
+var _ckeditor5BuildClassicDefault = parcelHelpers.interopDefault(_ckeditor5BuildClassic);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function TeamDashboard() {
+    _s();
+    const [name, setFullName] = _react.useState("");
+    const [userType, setStaffType] = _react.useState("");
+    const [email, setEmail] = _react.useState("");
+    const [Specialize, setSpecialize] = _react.useState("");
+    const [tel, setTel] = _react.useState("");
+    const [fax, setFax] = _react.useState("");
+    const [password, setRegpassword] = _react.useState("");
+    const [emailStatus, setEmailStatus] = _react.useState("");
+    const [emailColor, setEmailColor] = _react.useState("");
+    const [Qualifications, setQualifications] = _react.useState("");
+    const [cpassword, setCPassword] = _react.useState("");
+    const [Messagematchpassword, setMessagematchpassword] = _react.useState("");
+    const [MessagematchpasswordColor, setMessagematchpasswordColor] = _react.useState("");
+    const [Messagepassword, setMessagepassword] = _react.useState("");
+    const [MessagepasswordColor, setMessagepasswordColor] = _react.useState("");
+    function setRegcpasswordFun(e) {
+        const c_pass = e;
+        if (c_pass == password) {
+            setMessagematchpassword("Passwords are matching");
+            setMessagematchpasswordColor('green');
+        } else {
+            setMessagematchpassword("Passwords are not matching");
+            setMessagematchpasswordColor('red');
+        }
+        setCPassword(c_pass);
+    }
+    function setRegpasswordFun(e) {
+        const password1 = e;
+        if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password1)) {
+            setMessagepassword("Password is strong");
+            setMessagepasswordColor('#0A734E');
+        } else {
+            setMessagepassword("Password is not strong");
+            setMessagepasswordColor('#E10B0B');
+        }
+        setRegpassword(password1);
+    }
+    function setFunEmail(e) {
+        const email_Add = e;
+        if (validateEmail(email_Add)) {
+            setEmailStatus("Email is valid");
+            setEmailColor('green');
+        } else {
+            setEmailStatus("Email is invalid");
+            setEmailColor('red');
+        }
+        setEmail(email_Add);
+    }
+    function validateEmail(email1) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email1);
+    }
+    function submit(e) {
+        e.preventDefault();
+        const eductions = Qualifications.toString();
+        const staffReg = {
+            password,
+            name,
+            email,
+            tel,
+            fax,
+            eductions,
+            userType,
+            Specialize
+        };
+        _axiosDefault.default.post("http://localhost:5000/staff/staff_registration", staffReg).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Staff Registration Success!",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                if (okay) window.location.href = "/Login";
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Staff Registration Not Success",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 105
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_homePageNavDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 106
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 107
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 108
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "container",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 109
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row bg-light rounded p-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 110
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 111
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h4", {
+        class: "card-title text-center pt-5 pb-2  text-uppercase text-dark",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 112
+        },
+        __self: this
+    }, "Staff Registration")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 116
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 117
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-8",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 118
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 119
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 120
+        },
+        __self: this
+    }, "Full Name"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setFullName(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 121
+        },
+        __self: this
+    }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 126
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 127
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 128
+        },
+        __self: this
+    }, "Staff Type"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        type: "text",
+        class: "form-select",
+        onChange: (e)=>{
+            setStaffType(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 129
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 132
+        },
+        __self: this
+    }, "Select Staff Type"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Supervisor",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 133
+        },
+        __self: this
+    }, "Supervisor"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Co-Supervisor",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 134
+        },
+        __self: this
+    }, "Co-Supervisor"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Panel Member",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 135
+        },
+        __self: this
+    }, "Panel Member"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 140
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 141
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 142
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 143
+        },
+        __self: this
+    }, "Email"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "text",
+        class: "form-control",
+        onChange: (e)=>{
+            setFunEmail(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 144
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        style: {
+            fontSize: '14px',
+            color: emailColor
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 147
+        },
+        __self: this
+    }, emailStatus))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 150
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 151
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 152
+        },
+        __self: this
+    }, "Telephone Number"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        onChange: (e)=>{
+            setTel(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 153
+        },
+        __self: this
+    }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 158
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 159
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 160
+        },
+        __self: this
+    }, "Fax Number"), /*#__PURE__*/ _reactDefault.default.createElement(_reactNumberFormatDefault.default, {
+        format: "##########",
+        class: "form-control",
+        onChange: (e)=>{
+            setFax(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 161
+        },
+        __self: this
+    }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 166
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 167
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 168
+        },
+        __self: this
+    }, "Specialize For"), /*#__PURE__*/ _reactDefault.default.createElement("select", {
+        type: "text",
+        class: "form-select",
+        onChange: (e)=>{
+            setSpecialize(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 169
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 172
+        },
+        __self: this
+    }, "Select Specialize For"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Machine Learning",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 173
+        },
+        __self: this
+    }, "Machine Learning"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Web Technology",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 174
+        },
+        __self: this
+    }, "Web Technology"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Networking",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 175
+        },
+        __self: this
+    }, "Networking"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Cryptography",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 176
+        },
+        __self: this
+    }, "Cryptography"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "IOT",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 177
+        },
+        __self: this
+    }, "IOT"), /*#__PURE__*/ _reactDefault.default.createElement("option", {
+        value: "Cyber Security",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 178
+        },
+        __self: this
+    }, "Cyber Security"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 183
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 184
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 185
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 186
+        },
+        __self: this
+    }, " Password"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "password",
+        class: "form-control",
+        onChange: (e)=>{
+            setRegpasswordFun(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 187
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        style: {
+            fontSize: '14px',
+            color: MessagepasswordColor
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 190
+        },
+        __self: this
+    }, Messagepassword))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-6",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 193
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 194
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 195
+        },
+        __self: this
+    }, "Confirm Password"), /*#__PURE__*/ _reactDefault.default.createElement("input", {
+        type: "password",
+        class: "form-control",
+        onChange: (e)=>{
+            setRegcpasswordFun(e.target.value);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 196
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+        style: {
+            fontSize: '14px',
+            color: MessagematchpasswordColor
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 199
+        },
+        __self: this
+    }, Messagematchpassword)))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "row",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 203
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-start mt-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 204
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+        class: "form-label",
+        style: {
+            lineHeight: 0
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 205
+        },
+        __self: this
+    }, "Qualifications"), /*#__PURE__*/ _reactDefault.default.createElement(_ckeditor5React.CKEditor, {
+        editor: _ckeditor5BuildClassicDefault.default,
+        data: "",
+        onChange: (event, editor)=>{
+            const data = editor.getData();
+            setQualifications(data);
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 206
+        },
+        __self: this
+    })))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "col-sm-12 mb-4",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 217
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "mb-3 text-end ",
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 218
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-outline-dark",
+        onClick: ()=>window.location.href = "/RegDashboard"
+        ,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 219
+        },
+        __self: this
+    }, "Back"), "\xa0\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+        type: "button",
+        class: "btn btn-dark",
+        onClick: submit,
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\staff\\staff_reg.jsx",
+            lineNumber: 220
+        },
+        __self: this
+    }, "Submit")))))))));
+}
+_s(TeamDashboard, "j6h4qGep6qgmsEUV255xOwPrOsw=");
+_c = TeamDashboard;
+exports.default = TeamDashboard;
+var _c;
+$RefreshReg$(_c, "TeamDashboard");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

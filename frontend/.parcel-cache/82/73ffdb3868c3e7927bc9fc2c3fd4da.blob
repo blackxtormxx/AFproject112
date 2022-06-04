@@ -1,0 +1,837 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _afterLogin = require("../navbars/afterLogin");
+var _afterLoginDefault = parcelHelpers.interopDefault(_afterLogin);
+var _footer = require("../footer/footer");
+var _footerDefault = parcelHelpers.interopDefault(_footer);
+var _sweetalert2 = require("sweetalert2");
+var _sweetalert2Default = parcelHelpers.interopDefault(_sweetalert2);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _ckeditor5React = require("@ckeditor/ckeditor5-react");
+var _ckeditor5BuildClassic = require("@ckeditor/ckeditor5-build-classic");
+var _ckeditor5BuildClassicDefault = parcelHelpers.interopDefault(_ckeditor5BuildClassic);
+var _moment = require("moment");
+var _momentDefault = parcelHelpers.interopDefault(_moment);
+var _jsCookie = require("js-cookie");
+var _jsCookieDefault = parcelHelpers.interopDefault(_jsCookie);
+var _styleCss = require("../src/style.css");
+var _s = $RefreshSig$();
+function PanelViewTeam() {
+    _s();
+    const username = _jsCookieDefault.default.get('user_name');
+    const [researchTopic, setEvolution] = _react.useState("");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id');
+    const [Supervisor, setSupervisorName] = _react.useState([]);
+    const [TeamDetails, setTeamDetails] = _react.useState([]);
+    _react.useEffect(()=>{
+        _axiosDefault.default.get("http://localhost:5000/team/OneTeam/" + id).then((res)=>setTeamDetails(res.data)
+        ).catch((error)=>console.log(error)
+        );
+    });
+    function topicEvolution() {
+        const description = researchTopic.toString();
+        const submitEvolutions = {
+            id,
+            description
+        };
+        _axiosDefault.default.put("http://localhost:5000/team/submitEvolution", submitEvolutions).then(()=>{
+            _sweetalert2Default.default.fire({
+                title: "Success!",
+                text: "Sent Topic Evolution.",
+                icon: 'success',
+                confirmButtonText: "OK",
+                type: "success"
+            }).then((okay)=>{
+                window.location.href = "/panel/PanelViewTeam?id=" + id;
+            });
+        }).catch((err)=>{
+            _sweetalert2Default.default.fire({
+                title: "Error!",
+                text: "Not Sent Topic Evolution.",
+                icon: 'error',
+                confirmButtonText: "OK",
+                type: "success"
+            });
+        });
+    }
+    function back() {
+        window.location.href = "/panel/PanelStudentGroup";
+    }
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+            lineNumber: 61
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_afterLoginDefault.default, {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        class: "global-container3",
+        style: {
+            paddingTop: '5%',
+            paddingBottom: '5%'
+        },
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+            lineNumber: 63
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+        __source: {
+            fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+            lineNumber: 64
+        },
+        __self: this
+    }, TeamDetails.map((TeamDetail, key)=>/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "container",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 66
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "row bg-light rounded p-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 67
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("center", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 68
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h2", {
+            class: "card-title text-center pt-2 pb-2  text-uppercase text-dark",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 69
+            },
+            __self: this
+        }, "Your Group Details"), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            style: {
+                lineHeight: '0%'
+            },
+            class: "mb-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 72
+            },
+            __self: this
+        }, "Team Id - ", id)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "text-start mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 75
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "text-end mt-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 76
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            onClick: back,
+            class: "btn btn-outline-dark btn-sm",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 77
+            },
+            __self: this
+        }, "Back"), "\xa0", /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-outline-dark btn-sm",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#exampleModal",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 78
+            },
+            __self: this
+        }, "Topic Evaluation"), "\xa0"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                display: TeamDetail.topicStatus == 'Not Submit' ? 'none' : 'inline'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 80
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 81
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 81
+            },
+            __self: this
+        }, "Selected Topic :"), " ", TeamDetail.researchTopic), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 82
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 82
+            },
+            __self: this
+        }, "Topic status :"), " ", TeamDetail.topicStatus), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, "Team status :"), " ", /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            style: {
+                color: TeamDetail.status == 'Active' ? 'Green' : 'Red'
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, TeamDetail.status == 'Active' ? 'Approved' : 'Rejected')), /*#__PURE__*/ _reactDefault.default.createElement("p", {
+            class: "modal-title text-dark ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("b", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, "Research Category :"), " ", /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, TeamDetail.researchCategory))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal fade",
+            id: "exampleModal",
+            tabindex: "-1",
+            "aria-labelledby": "exampleModalLabel",
+            "aria-hidden": "true",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 86
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal-dialog modal-dialog-centered modal-xl",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 87
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal-content",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 88
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal-header bg-dark text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 89
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "modal-title text-warning",
+            id: "exampleModalLabel",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 90
+            },
+            __self: this
+        }, "TOPIC EVOLUTION"), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn-close",
+            "data-bs-dismiss": "modal",
+            "aria-label": "Close",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 91
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal-body text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 93
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-3 text-start mt-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            style: {
+                lineHeight: 0
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 95
+            },
+            __self: this
+        }, "Write Evolution"), /*#__PURE__*/ _reactDefault.default.createElement(_ckeditor5React.CKEditor, {
+            editor: _ckeditor5BuildClassicDefault.default,
+            data: "",
+            onChange: (event, editor)=>{
+                const data = editor.getData();
+                setEvolution(data);
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 96
+            },
+            __self: this
+        }))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "modal-footer border-0",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            type: "button",
+            class: "btn btn-primary",
+            onClick: topicEvolution,
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, "Save"))))), /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 112
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("h3", {
+            class: "mt-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 113
+            },
+            __self: this
+        }, "About Project"), /*#__PURE__*/ _reactDefault.default.createElement("hr", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 114
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                fontSize: '15px',
+                display: TeamDetail.topicStatus != 'Reject' ? 'inline' : 'none'
+            },
+            className: "mt-3",
+            dangerouslySetInnerHTML: {
+                __html: TeamDetail.description
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 115
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("h3", {
+            class: "mt-5 pt-5 pb-4",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 120
+            },
+            __self: this
+        }, "Evolution"), /*#__PURE__*/ _reactDefault.default.createElement("hr", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 121
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            style: {
+                fontSize: '15px',
+                display: TeamDetail.topicStatus != 'Reject' ? 'inline' : 'none'
+            },
+            className: "mt-3",
+            dangerouslySetInnerHTML: {
+                __html: TeamDetail.evolution
+            },
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 122
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4 mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 128
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 129
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 130
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 131
+            },
+            __self: this
+        }, "Team Leader Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 132
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 133
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_one_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 135
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 136
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_one_reg)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 139
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 140
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_one_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 143
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 144
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_one_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 147
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 148
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 148
+            },
+            __self: this
+        }), TeamDetail.mem_one_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-3",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 154
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 155
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 156
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 157
+            },
+            __self: this
+        }, "First Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 158
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 159
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_two_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 161
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 162
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_two_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 165
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 166
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_two_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 169
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 170
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_two_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 173
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 174
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 174
+            },
+            __self: this
+        }), TeamDetail.mem_two_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-2",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 180
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 181
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 182
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 183
+            },
+            __self: this
+        }, "Second Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 184
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 185
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_three_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 187
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 188
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_two_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 191
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 192
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_three_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 195
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 196
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_three_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 199
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 200
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 200
+            },
+            __self: this
+        }), TeamDetail.mem_three_specialize))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "col-sm-6 mb-4  mt-2",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 206
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 207
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "card-body ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 208
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            class: "card-title",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 209
+            },
+            __self: this
+        }, "Fourth Member's Details"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start mt-5",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 210
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 211
+            },
+            __self: this
+        }, " Name : ", TeamDetail.mem_four_name)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 213
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 214
+            },
+            __self: this
+        }, "Registration Number : ", TeamDetail.mem_four_regNum)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 217
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 218
+            },
+            __self: this
+        }, "Email : ", TeamDetail.mem_four_email)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 221
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 222
+            },
+            __self: this
+        }, "Telephone : ", TeamDetail.mem_four_tel)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            class: "mb-2 text-start ",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 225
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
+            class: "form-label",
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 226
+            },
+            __self: this
+        }, "Specialization : ", /*#__PURE__*/ _reactDefault.default.createElement("br", {
+            __source: {
+                fileName: "C:\\Users\\THEVINDU\\Downloads\\ds project\\frontend\\components\\member_panel\\panel_view_team.jsx",
+                lineNumber: 226
+            },
+            __self: this
+        }), TeamDetail.mem_four_specialize)))))))
+    )))));
+}
+_s(PanelViewTeam, "/IV7lYUHDnietvsL7Q90JDy+deY=");
+_c = PanelViewTeam;
+exports.default = PanelViewTeam;
+var _c;
+$RefreshReg$(_c, "PanelViewTeam");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
