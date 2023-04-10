@@ -30,7 +30,12 @@ const deadLineRegSchema = new Schema({
         type: String,
         required: true,
     },
-  
+
+    
+    
 });
 const deadLine_Schema = mongoose.model('deadLine', deadLineRegSchema);
 module.exports = deadLine_Schema;
+
+
+
